@@ -23,11 +23,11 @@ func _on_play():
 	change_level(level)
 	
 func _on_back_menu():
-	var level = load("res://scenes/game/menus/main_menu/main_menu.tscn").instantiate()
+	var level = load("res://scenes/menus/main_menu/main_menu.tscn").instantiate()
 	change_level(level)
 	
 func _on_game_over():
-	var level = load("res://scenes/game/menus/game_over/game_over.tscn").instantiate()
+	var level = load("res://scenes/menus/game_over/game_over.tscn").instantiate()
 	change_level(level)
 	
 func _on_quit():
