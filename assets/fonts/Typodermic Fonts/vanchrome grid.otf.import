@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://damhi3x8xpkd4"
+path="res://.godot/imported/vanchrome grid.otf-c08f91ab7f75c86d0e98bf08e1281313.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/Typodermic Fonts/vanchrome grid.otf"
+dest_files=["res://.godot/imported/vanchrome grid.otf-c08f91ab7f75c86d0e98bf08e1281313.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://bbrggm5mucmra"
+path="res://.godot/imported/astron boy wonder.otf-cb9e2fccda26e7219b1bb81c0ce681e7.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/Typodermic Fonts/astron boy wonder.otf"
+dest_files=["res://.godot/imported/astron boy wonder.otf-cb9e2fccda26e7219b1bb81c0ce681e7.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

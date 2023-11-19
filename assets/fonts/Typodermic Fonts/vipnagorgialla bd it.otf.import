@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://klxw0r17f1ig"
+path="res://.godot/imported/vipnagorgialla bd it.otf-3b654abf42a1efd15b609684e49b0c3b.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/Typodermic Fonts/vipnagorgialla bd it.otf"
+dest_files=["res://.godot/imported/vipnagorgialla bd it.otf-3b654abf42a1efd15b609684e49b0c3b.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}
