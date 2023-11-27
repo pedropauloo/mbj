@@ -1,12 +1,22 @@
-class_name Player extends CharacterBody2D
+class_name Player extends CharacterBody3D
 
 @export var hp = 100
-@export var speed = 400
+@export var speed = 5.0
 
 func get_input():
-	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = input_direction * speed
+	var input_dir = Vector3()
 
-func _physics_process(delta):
+	if Input.is_action_pressed("ui_right"):
+		input_dir.x += 1
+	if Input.is_action_pressed("ui_left"):
+		input_dir.x -= 1
+	if Input.is_action_pressed("ui_down"):
+		input_dir.z += 1
+	if Input.is_action_pressed("ui_up"):
+		input_dir.z -= 1
+
+	velocity = input_dir.normalized() * speed
+
+func _process(delta):
 	get_input()
 	move_and_slide()

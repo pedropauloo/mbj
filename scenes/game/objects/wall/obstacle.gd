@@ -1,11 +1,13 @@
-class_name Obstacle extends Area2D
-@export var speed = 400
+class_name Obstacle extends Area3D
+@export var speed = 20
 
 func _physics_process(delta):
-	position.x += -1*speed*delta
+	var new_position = transform.origin
+	new_position.x -= speed * delta
+	transform.origin = new_position
 
 func _process(delta):
-	if(position.x < 0):
+	if(position.x < -10):
 		queue_free()
 
 func _on_body_entered(body):
