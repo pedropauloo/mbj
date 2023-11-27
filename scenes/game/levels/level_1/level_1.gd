@@ -7,8 +7,8 @@ func _process(delta):
 	super._process(delta)
 	if(wall_ready):
 		var wall_inst = wall.instantiate()
-		wall_inst.position.x = 1032 
-		wall_inst.position.y = randi_range(80,568)
+		wall_inst.position.x = 50 
+		wall_inst.position.z = randi_range(16,-16)
 		get_tree().get_root().add_child(wall_inst)
 		wall_ready = false
 	

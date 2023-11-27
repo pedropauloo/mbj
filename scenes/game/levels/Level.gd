@@ -1,4 +1,4 @@
-class_name Level extends Node2D
+class_name Level extends Node3D
 signal game_over()
 
 func _process(delta):
