@@ -4,12 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://b1lvmc10bwxvt" path="res://icon.svg" id="2_ti0gt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u4pkw"]
+size = Vector3(1.2, 0.1, 1.2)
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_6e15m")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1.19249e-08, -0.707107, -0.707107, 0, 0.707107, -0.707107, 1, 8.43216e-09, 8.43216e-09, 0, 0, 0)
 texture = ExtResource("2_ti0gt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
