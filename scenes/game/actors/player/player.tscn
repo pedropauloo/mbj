@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b1lvmc10bwxvt" path="res://icon.svg" id="2_ti0gt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u4pkw"]
-size = Vector3(1.2, 0.1, 1.2)
+size = Vector3(1.2, 1, 1.2)
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_6e15m")
@@ -17,7 +17,6 @@ texture = ExtResource("2_ti0gt")
 shape = SubResource("BoxShape3D_u4pkw")
 
 [node name="HitBox" type="Area3D" parent="."]
-monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 shape = SubResource("BoxShape3D_u4pkw")
