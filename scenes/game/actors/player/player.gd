@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody3D
 
+@onready var animation = $AnimationPlayer
+
 @export var hp = 100
 @export var speed = 5.0
 @export var jump_force = 6
@@ -18,10 +20,14 @@ func _physics_process(delta):
 	var input_dir =  Input.get_vector("ui_up","ui_down","ui_right","ui_left")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		
+		if direction.z > 0:
+			animation.play("turn_right")
+		elif direction.z < 0:
+			animation.play("turn_left")
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 	else:
+		animation.queue("riding")
 		velocity.x = move_toward(velocity.x, 0 , speed)
 		velocity.z = move_toward(velocity.z, 0 , speed)
 
@@ -29,4 +35,5 @@ func _physics_process(delta):
 
 func jump():
 	if is_on_floor():
+		animation.play("jump")
 		velocity.y = jump_force
