@@ -3,6 +3,9 @@ extends Menu
 signal play()
 signal back_menu()
 
+func _ready():
+	$FinalScore.text = str(get_parent().load_game().score)
+
 func _on_try_again_pressed():
 	emit_signal('play')
 

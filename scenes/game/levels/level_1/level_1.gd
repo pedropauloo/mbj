@@ -3,6 +3,10 @@ extends Level
 @onready var wall = load("res://scenes/game/objects/wall/wall.tscn")
 var wall_ready = true
 
+func _ready():
+	for i in $Obstacles.get_children():
+		i.queue_free()
+		
 func _process(delta):
 	super._process(delta)
 	if(wall_ready):
@@ -10,9 +14,16 @@ func _process(delta):
 		wall_inst.position.x = 50 
 		wall_inst.position.y = 1 
 		wall_inst.position.z = randi_range(16,-16)
-		get_tree().get_root().add_child(wall_inst)
+		$Obstacles.add_child(wall_inst)
 		wall_ready = false
 	
-
-func _on_timer_timeout():
+	
+func _on_timer_wall_timeout():
 	wall_ready = true
+
+func _on_timer_points_timeout():
+	score += 1
+	$Score.text = str(score) + 'm'
+
+
+
