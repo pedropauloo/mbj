@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://naahhds2row7"
+path="res://.godot/imported/ÁUDIO SOCORRO.mp3-fe4730946515d130424056362f1d9c0b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/help/ÁUDIO SOCORRO.mp3"
+dest_files=["res://.godot/imported/ÁUDIO SOCORRO.mp3-fe4730946515d130424056362f1d9c0b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

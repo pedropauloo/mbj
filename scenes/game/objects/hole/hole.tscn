@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c04vqvy07u33e"]
+
+[sub_resource type="Gradient" id="Gradient_dqqth"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1s5xx"]
+gradient = SubResource("Gradient_dqqth")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_h7140"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gkvdp"]
+
+[node name="Hole" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(2.79682, 0, 0, 0, 1, 0, 0, 0, 2.67702, 0, 0, 0)
+
+[node name="Sprite2D" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(-1.54744, -4.43412e-08, -3.22933e-08, 1.31639e-07, 0.0228303, -0.735518, 5.14482e-08, -1.51413, 0.821762, 0.0018939, 0.00799453, 0)
+texture = SubResource("GradientTexture2D_1s5xx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(0.502268, 0, 0, 0, 1, 0, 0, 0, 0.492414, 0, 0, 0)
+mesh = SubResource("PlaneMesh_h7140")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -0.0427211, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_gkvdp")
