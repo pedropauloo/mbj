@@ -1,4 +1,4 @@
-class_name Obstacle extends Area3D
+class_name Wall extends Area3D
 @export var speed = 20
 
 func _physics_process(delta):

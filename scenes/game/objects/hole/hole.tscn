@@ -1,27 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://c04vqvy07u33e"]
+[gd_scene load_steps=4 format=3 uid="uid://mrdongou7uvl"]
 
-[sub_resource type="Gradient" id="Gradient_dqqth"]
+[ext_resource type="Script" path="res://scenes/game/objects/hole/hole.gd" id="1_bfkx6"]
+[ext_resource type="Texture2D" uid="uid://bfxk1j01frwxb" path="res://assets/sprites/obstacles/hole.png" id="2_13wnp"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_1s5xx"]
-gradient = SubResource("Gradient_dqqth")
+[sub_resource type="BoxShape3D" id="BoxShape3D_6wkxh"]
+size = Vector3(1.675, 1, 2.536)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_h7140"]
+[node name="hole" type="Area3D"]
+transform = Transform3D(1.96513, 0, 0, 0, 1, 0, 0, 0, 1.96513, 0, 0, 0)
+script = ExtResource("1_bfkx6")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gkvdp"]
+[node name="Sprite2D" type="Sprite3D" parent="."]
+transform = Transform3D(-1, -6.18172e-08, -6.18172e-08, 0, 0.707107, -0.707107, 8.74228e-08, -0.707107, -0.707107, 0, 0, 0)
+texture = ExtResource("2_13wnp")
 
-[node name="Hole" type="Node3D"]
+[node name="CollisionShape2D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999999, -0.00124981, 0.000778607, 0.00125034, 0.999999, -0.000682435, -0.000777757, 0.000683403, 0.999999, 0, 0, 0)
+shape = SubResource("BoxShape3D_6wkxh")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(2.79682, 0, 0, 0, 1, 0, 0, 0, 2.67702, 0, 0, 0)
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 12, 0)
 
-[node name="Sprite2D" type="Sprite3D" parent="StaticBody3D"]
-transform = Transform3D(-1.54744, -4.43412e-08, -3.22933e-08, 1.31639e-07, 0.0228303, -0.735518, 5.14482e-08, -1.51413, 0.821762, 0.0018939, 0.00799453, 0)
-texture = SubResource("GradientTexture2D_1s5xx")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(0.502268, 0, 0, 0, 1, 0, 0, 0, 0.492414, 0, 0, 0)
-mesh = SubResource("PlaneMesh_h7140")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, -0.0427211, 0, 0, 0, 1, 0, 0, 0)
-shape = SubResource("BoxShape3D_gkvdp")
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,17 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfuplavbwqief"]
+[gd_scene load_steps=4 format=3 uid="uid://mrdongou7uvl"]
 
-[ext_resource type="Script" path="res://scenes/game/objects/wall/wall.gd" id="1_ol174"]
-[ext_resource type="Texture2D" uid="uid://b1lvmc10bwxvt" path="res://icon.svg" id="2_d145d"]
+[ext_resource type="Script" path="res://scenes/game/objects/hole/hole.gd" id="1_bfkx6"]
+[ext_resource type="Texture2D" uid="uid://bfxk1j01frwxb" path="res://assets/sprites/obstacles/hole.png" id="2_13wnp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6wkxh"]
 size = Vector3(1.675, 1, 2.536)
 
-[node name="wall" type="Area3D"]
-script = ExtResource("1_ol174")
+[node name="hole" type="Area3D"]
+transform = Transform3D(1.96513, 0, 0, 0, 1, 0, 0, 0, 1.96513, 0, 0, 0)
+script = ExtResource("1_bfkx6")
+speed = 20
 
 [node name="Sprite2D" type="Sprite3D" parent="."]
 transform = Transform3D(-1, -6.18172e-08, -6.18172e-08, 0, 0.707107, -0.707107, 8.74228e-08, -0.707107, -0.707107, 0, 0, 0)
-texture = ExtResource("2_d145d")
+texture = ExtResource("2_13wnp")
 
 [node name="CollisionShape2D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.999999, -0.00124981, 0.000778607, 0.00125034, 0.999999, -0.000682435, -0.000777757, 0.000683403, 0.999999, 0, 0, 0)

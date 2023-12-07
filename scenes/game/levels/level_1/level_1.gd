@@ -20,7 +20,8 @@ func _process(delta):
 	if(hole_ready):
 		var hole_instance = hole.instantiate()
 		hole_instance.position.x = 50
-		hole_instance.position.z = randi_range(16, -16)
+		hole_instance.position.y = 1 
+		hole_instance.position.z = randi_range(5, -5)
 		get_tree().get_root().add_child(hole_instance)
 		hole_ready = false
 		
