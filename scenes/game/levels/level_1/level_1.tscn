@@ -1,14 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://7yu0eerkbu38"]
+[gd_scene load_steps=8 format=3 uid="uid://7yu0eerkbu38"]
 
 [ext_resource type="Script" path="res://scenes/game/levels/level_1/level_1.gd" id="1_lyuwy"]
 [ext_resource type="PackedScene" uid="uid://dh8kv8ss7haw0" path="res://scenes/game/actors/player/player.tscn" id="2_x6irs"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_shev2"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_nn3gx"]
+sky_material = SubResource("ProceduralSkyMaterial_shev2")
+
+[sub_resource type="Environment" id="Environment_ako27"]
+background_mode = 2
+sky = SubResource("Sky_nn3gx")
+tonemap_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_53ueg"]
+size = Vector3(140, 1, 40)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vln0p"]
+size = Vector2(140, 40)
 
 [node name="level_1" type="Node3D"]
 script = ExtResource("1_lyuwy")
 metadata/_edit_lock_ = true
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ako27")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, 0)
+shape = SubResource("BoxShape3D_53ueg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, 0)
+mesh = SubResource("PlaneMesh_vln0p")
+skeleton = NodePath("")
+
 [node name="player" parent="." instance=ExtResource("2_x6irs")]
-transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 0)
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0.00771284, 1, 0.0148174)
 
 [node name="Camera3D" type="Camera3D" parent="player"]
 transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 12, 12, -20)
@@ -16,7 +51,5 @@ transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
-
-[node name="GridMap" type="GridMap" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
