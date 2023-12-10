@@ -17,21 +17,24 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		jump()
 	
-	# UP = -z, DOWN = +Z, RIGHT = +x, LEFT = -x
-	var input_dir =  Input.get_vector("ui_up","ui_down","ui_right","ui_left")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	# RIGHT = +x, LEFT = -x, UP = -z, DOWN = +z
+	var input_dir =  Input.get_vector("ui_right","ui_left","ui_up","ui_down",)
+	var direction = (Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		if direction.z > 0:
-			animation.play("turn_right")
-		elif direction.z < 0:
-			animation.play("turn_left")
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
+		if(animation.current_animation != 'jump'):
+			if direction.z > 0:
+				animation.play("turn_right")
+			elif direction.z < 0:
+				animation.play("turn_left")
+			else:
+				animation.play("riding")
+			#velocity.x = direction.x * speed
+			velocity.z = direction.z * speed
 	else:
-		animation.queue("riding")
+		if(animation.current_animation != 'jump'):
+			animation.play("riding")
 		velocity.x = move_toward(velocity.x, 0 , speed)
 		velocity.z = move_toward(velocity.z, 0 , speed)
-
 	move_and_slide()
 
 func jump():
