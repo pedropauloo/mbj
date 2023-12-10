@@ -6,8 +6,8 @@ extends Level
 @onready var hole = load("res://scenes/game/objects/hole/hole.tscn")
 @onready var oil = load("res://scenes/game/objects/oil/oil.tscn")
 
-var wall_ready = false
-var hole_ready = false
+var wall_ready = true
+var hole_ready = true
 var oil_ready = true
 
 func _process(delta):
