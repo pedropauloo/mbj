@@ -13,7 +13,7 @@ func _process(delta):
 		var wall_inst = wall.instantiate()
 		wall_inst.position.x = 50 
 		wall_inst.position.y = 1 
-		wall_inst.position.z = randi_range(16,-16)
+		wall_inst.position.z = randi_range(2,-5)
 		$Obstacles.add_child(wall_inst)
 		wall_ready = false
 	

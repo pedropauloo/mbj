@@ -1,0 +1,87 @@
+[gd_scene load_steps=16 format=3 uid="uid://c3idsj77kmk8h"]
+
+[ext_resource type="Shader" path="res://assets/shaders/auto_scroller.gdshader" id="1_3ddvn"]
+[ext_resource type="Texture2D" uid="uid://chtqlvorj2hgg" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/sky.png" id="2_rpi74"]
+[ext_resource type="Shader" path="res://auto_scroller.gdshader" id="2_s8vwb"]
+[ext_resource type="Texture2D" uid="uid://cky64yic8ajbg" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/far-clouds.png" id="3_irfv1"]
+[ext_resource type="Texture2D" uid="uid://vqcrxlpwvob4" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/near-clouds.png" id="4_8pgpc"]
+[ext_resource type="Texture2D" uid="uid://d22sbvv8jnryv" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/far-mountains.png" id="5_5ypxh"]
+[ext_resource type="Texture2D" uid="uid://ir2n5o1snup8" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/mountains.png" id="6_d0rd6"]
+[ext_resource type="Texture2D" uid="uid://c7x2fpip36uxh" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/trees.png" id="7_bft2p"]
+[ext_resource type="AudioStream" uid="uid://dmhb67ro1gulp" path="res://assets/audio/music/summer nights.ogg" id="9_ynjcr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0rxlh"]
+shader = ExtResource("1_3ddvn")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jv7m2"]
+render_priority = 0
+shader = ExtResource("2_s8vwb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qattk"]
+render_priority = 0
+shader = ExtResource("2_s8vwb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_maog4"]
+render_priority = 0
+shader = ExtResource("2_s8vwb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cpwus"]
+render_priority = 0
+shader = ExtResource("2_s8vwb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vc8l8"]
+render_priority = 0
+shader = ExtResource("2_s8vwb")
+
+[node name="AutoScroller" type="Node2D"]
+material = SubResource("ShaderMaterial_0rxlh")
+
+[node name="BackFixedTuxture" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_rpi74")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRectFarClouds" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_jv7m2")
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("3_irfv1")
+stretch_mode = 1
+
+[node name="TextureRectNearClouds" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_qattk")
+use_parent_material = true
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("4_8pgpc")
+stretch_mode = 1
+
+[node name="TextureRectFarMountains" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_maog4")
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("5_5ypxh")
+stretch_mode = 1
+
+[node name="TextureRectMountains" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_cpwus")
+use_parent_material = true
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_d0rd6")
+stretch_mode = 1
+
+[node name="TextureRectTrees" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_vc8l8")
+use_parent_material = true
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("7_bft2p")
+stretch_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ynjcr")
+autoplay = true

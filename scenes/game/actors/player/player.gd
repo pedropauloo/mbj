@@ -6,6 +6,7 @@ class_name Player extends CharacterBody3D
 @export var speed = 5.0
 @export var jump_force = 6
 @export var gravity = 9.8
+var can_jump = true
 
 func _physics_process(delta):
 	# Adicionar gravidade
@@ -40,3 +41,8 @@ func jump():
 	if is_on_floor():
 		animation.play("jump")
 		velocity.y = jump_force
+		can_jump = false
+
+
+func _on_jump_cooldown_timeout():
+	can_jump = true
