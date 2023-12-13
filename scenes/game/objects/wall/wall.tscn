@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b1lvmc10bwxvt" path="res://icon.svg" id="2_d145d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6wkxh"]
-size = Vector3(1.675, 1, 2.536)
+size = Vector3(1.41292, 1, 1.0503)
 
 [node name="wall" type="Area3D"]
 script = ExtResource("1_ol174")

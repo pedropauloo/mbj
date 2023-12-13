@@ -1,14 +1,7 @@
-class_name Wall extends Area3D
-@export var speed = 20
+extends Obstacle
 
-func _physics_process(delta):
-	var new_position = transform.origin
-	new_position.x -= speed * delta
-	transform.origin = new_position
-
-func _process(delta):
-	if(position.x < -10):
-		queue_free()
+func _init():
+	super._init(20)
 
 func _on_body_entered(body):
 	if (body is Player):
