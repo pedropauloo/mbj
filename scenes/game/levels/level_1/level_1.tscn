@@ -1,32 +1,50 @@
-[gd_scene load_steps=9 format=3 uid="uid://7yu0eerkbu38"]
+[gd_scene load_steps=13 format=3 uid="uid://7yu0eerkbu38"]
 
 [ext_resource type="Script" path="res://scenes/game/levels/level_1/level_1.gd" id="1_lyuwy"]
-[ext_resource type="PackedScene" uid="uid://dh8kv8ss7haw0" path="res://scenes/game/actors/player/player.tscn" id="2_x6irs"]
+[ext_resource type="PackedScene" uid="uid://c3idsj77kmk8h" path="res://scenes/game/levels/auto_scroller/auto_scroller.tscn" id="2_blas5"]
+[ext_resource type="Texture2D" uid="uid://cwuitq8jhh8de" path="res://assets/tilesets/road_desert.png" id="3_0ac47"]
+[ext_resource type="Shader" path="res://assets/shaders/auto_scroller.gdshader" id="3_r4p6r"]
+[ext_resource type="PackedScene" uid="uid://dh8kv8ss7haw0" path="res://scenes/game/actors/player/player.tscn" id="5_yo2an"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_shev2"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6qls1"]
 
 [sub_resource type="Sky" id="Sky_nn3gx"]
-sky_material = SubResource("ProceduralSkyMaterial_shev2")
+sky_material = SubResource("PanoramaSkyMaterial_6qls1")
 
 [sub_resource type="Environment" id="Environment_ako27"]
-background_mode = 2
+background_mode = 3
 sky = SubResource("Sky_nn3gx")
 tonemap_mode = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_53ueg"]
-size = Vector3(140, 1, 40)
+size = Vector3(200, 1, 10)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_vln0p"]
-size = Vector2(140, 40)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_badxp"]
+shader = ExtResource("3_r4p6r")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ooqmi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e8i83"]
 size = Vector3(200, 10, 0)
 
 [node name="level_1" type="Node3D"]
 script = ExtResource("1_lyuwy")
-metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(34.157, 19.7261)
+color = Color(0.172549, 0.145098, 0.27451, 1)
+
+[node name="AutoScroller" parent="." instance=ExtResource("2_blas5")]
+position = Vector2(0, -40)
+scale = Vector2(3.6, 2.88)
+
+[node name="TextureRectTrees" parent="AutoScroller" index="5"]
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ako27")
@@ -42,22 +60,30 @@ metadata/_edit_lock_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, 0)
 shape = SubResource("BoxShape3D_53ueg")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, 0)
-mesh = SubResource("PlaneMesh_vln0p")
-skeleton = NodePath("")
+[node name="Road" type="Node2D" parent="Ground"]
+material = SubResource("ShaderMaterial_badxp")
+position = Vector2(0, 136)
+scale = Vector2(2, 2)
+
+[node name="RoadTexture" type="TextureRect" parent="Ground/Road"]
+modulate = Color(0.891277, 0.292071, 0.23992, 1)
+material = SubResource("ShaderMaterial_ooqmi")
+use_parent_material = true
+offset_right = 750.0
+offset_bottom = 256.0
+texture = ExtResource("3_0ac47")
 
 [node name="Walls" type="Node3D" parent="."]
 
 [node name="WallRight" type="StaticBody3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.75)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallRight"]
 shape = SubResource("BoxShape3D_e8i83")
 metadata/_edit_lock_ = true
 
 [node name="WallLeft" type="StaticBody3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallLeft"]
 shape = SubResource("BoxShape3D_e8i83")
@@ -65,11 +91,11 @@ metadata/_edit_lock_ = true
 
 [node name="Obstacles" type="Node3D" parent="."]
 
-[node name="player" parent="." instance=ExtResource("2_x6irs")]
-transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0.00771284, 1, 0.0148174)
+[node name="player" parent="." instance=ExtResource("5_yo2an")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15, 1, -1)
 
-[node name="Camera3D" type="Camera3D" parent="player"]
-transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 12, 12, -20)
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, -3.93408e-08, 3.93408e-08, 0, 0.707107, 0.707107, -5.56363e-08, -0.707107, 0.707107, 21, 15, 6)
 
 [node name="TimerWall" type="Timer" parent="."]
 wait_time = 0.5
@@ -86,3 +112,5 @@ text = "0m"
 
 [connection signal="timeout" from="TimerWall" to="." method="_on_timer_wall_timeout"]
 [connection signal="timeout" from="TimerPoints" to="." method="_on_timer_points_timeout"]
+
+[editable path="AutoScroller"]

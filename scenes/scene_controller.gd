@@ -11,7 +11,8 @@ func connect_signals():
 	if(current_level.id == 0):
 		current_level.play.connect(_on_play)
 		current_level.back_menu.connect(_on_back_menu)
-		
+	
+	# Game Over
 	elif(current_level.id == 1):
 		current_level.play.connect(_on_play)
 		current_level.quit.connect(_on_quit)

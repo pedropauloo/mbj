@@ -4,7 +4,7 @@ signal play()
 signal back_menu()
 
 func _ready():
-	$FinalScore.text = str(get_parent().load_game().score)
+	$FinalScore.text = str(get_parent().load_game().score) + "m"
 
 func _on_try_again_pressed():
 	emit_signal('play')
