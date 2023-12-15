@@ -1,14 +1,11 @@
 class_name Obstacle extends Area3D
 
-var speed: float
+const SPEED: float = 10
 static var speed_factor: float = 1.0
-
-func _init(speed_param:float):
-	speed = speed_param * speed_factor
 
 func _physics_process(delta):
 	var new_position = transform.origin
-	new_position.x -= speed * speed_factor * delta
+	new_position.x -= SPEED * speed_factor * delta
 	transform.origin = new_position
 
 func _process(delta):

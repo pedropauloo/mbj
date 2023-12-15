@@ -42,7 +42,7 @@ func _process(delta):
 func _on_timer_wall_timeout():
 	wall_ready = true
 	hole_ready = true
-	oil_ready = true
+	oil_ready = false
 
 func _on_timer_points_timeout():
 	score += 1

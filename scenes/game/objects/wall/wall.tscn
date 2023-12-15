@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bfuplavbwqief"]
 
 [ext_resource type="Script" path="res://scenes/game/objects/wall/wall.gd" id="1_ol174"]
-[ext_resource type="Texture2D" uid="uid://b1lvmc10bwxvt" path="res://icon.svg" id="2_d145d"]
+[ext_resource type="Texture2D" uid="uid://d0wsilwn7nfx7" path="res://assets/sprites/obstacles/car on firing.png" id="2_ep0u8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6wkxh"]
 size = Vector3(1.41292, 1, 1.0503)
@@ -10,8 +10,8 @@ size = Vector3(1.41292, 1, 1.0503)
 script = ExtResource("1_ol174")
 
 [node name="Sprite2D" type="Sprite3D" parent="."]
-transform = Transform3D(-1, -6.18172e-08, -6.18172e-08, 0, 0.707107, -0.707107, 8.74228e-08, -0.707107, -0.707107, 0, 0, 0)
-texture = ExtResource("2_d145d")
+transform = Transform3D(-0.727377, -4.49644e-08, -4.49644e-08, 0, 0.514334, -0.514334, 6.35894e-08, -0.514334, -0.514334, 0, 0, 0)
+texture = ExtResource("2_ep0u8")
 
 [node name="CollisionShape2D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.999999, -0.00124981, 0.000778607, 0.00125034, 0.999999, -0.000682435, -0.000777757, 0.000683403, 0.999999, 0, 0, 0)
