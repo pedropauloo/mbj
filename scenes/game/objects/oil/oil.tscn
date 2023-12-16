@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cddjr3nbj2mun"]
+
+[ext_resource type="Texture2D" uid="uid://cdd0ireqydt15" path="res://assets/sprites/obstacles/oil.png" id="2_ab48x"]
+[ext_resource type="Script" path="res://scenes/game/objects/oil/oil.gd" id="3_qnl1k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6wkxh"]
+size = Vector3(0.424643, 0.261844, 0.258184)
+
+[node name="oil" type="Area3D"]
+script = ExtResource("3_qnl1k")
+
+[node name="Sprite2D" type="Sprite3D" parent="."]
+transform = Transform3D(1, -4.42257e-08, -1.0677e-07, -1.0677e-07, -0.707107, -0.707107, -4.42257e-08, 0.707107, -0.707107, 0, 0, 0)
+texture = ExtResource("2_ab48x")
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999999, -0.00124981, 0.000778611, 0.00125034, 0.999999, -0.00068243, -0.000777757, 0.000683403, 0.999999, 0, 0, -0.0178881)
+shape = SubResource("BoxShape3D_6wkxh")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 12, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

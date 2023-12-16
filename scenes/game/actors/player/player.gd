@@ -8,6 +8,7 @@ class_name Player extends CharacterBody3D
 @export var gravity = 9.8
 var can_jump = true
 
+
 func _physics_process(delta):
 	# Adicionar gravidade
 	if not is_on_floor():
