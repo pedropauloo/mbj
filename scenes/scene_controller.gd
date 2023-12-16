@@ -11,19 +11,23 @@ func connect_signals():
 	if(current_level.id == 0):
 		current_level.play.connect(_on_play)
 		current_level.back_menu.connect(_on_back_menu)
-	
+		
 	# Game Over
 	elif(current_level.id == 1):
 		current_level.play.connect(_on_play)
 		current_level.quit.connect(_on_quit)
-	# Level 1
+		
+	#Levels
 	elif(current_level.id == 10):
 		Obstacle.set_speed_factor(1)
 		current_level.game_over.connect(_on_game_over)
-	# Level 2
-	else:
-		Obstacle.set_speed_factor(1.2)
+	elif(current_level.id == 20):
+		Obstacle.set_speed_factor(2)
 		current_level.game_over.connect(_on_game_over)
+	else:
+		Obstacle.set_speed_factor(3)
+		current_level.game_over.connect(_on_game_over)
+
 
 func _on_play():
 	var level = load("res://scenes/game/levels/level_1/level_1.tscn").instantiate()
