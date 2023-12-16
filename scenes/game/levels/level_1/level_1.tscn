@@ -92,6 +92,8 @@ metadata/_edit_lock_ = true
 
 [node name="Obstacles" type="Node3D" parent="."]
 
+[node name="Victims" type="Node3D" parent="."]
+
 [node name="player" parent="." instance=ExtResource("5_yo2an")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15, 1, -1)
 
@@ -99,15 +101,21 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15, 1,
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, -3.93408e-08, 3.93408e-08, 0, 0.707107, 0.707107, -5.56363e-08, -0.707107, 0.707107, 21, 15, 6)
+current = true
 
-[node name="TimerWall" type="Timer" parent="."]
+[node name="TimerObstacles" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
 
 [node name="TimerPoints" type="Timer" parent="."]
 autostart = true
 
-[connection signal="timeout" from="TimerWall" to="." method="_on_timer_wall_timeout"]
+[node name="TimerVictims" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="TimerObstacles" to="." method="_on_timer_obstacles_timeout"]
 [connection signal="timeout" from="TimerPoints" to="." method="_on_timer_points_timeout"]
+[connection signal="timeout" from="TimerVictims" to="." method="_on_timer_victims_timeout"]
 
 [editable path="AutoScroller"]

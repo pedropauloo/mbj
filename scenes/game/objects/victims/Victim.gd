@@ -1,4 +1,4 @@
-class_name Victim extends Node2D
+class_name Victim extends Node3D
 var victim_type: int
 @export var speed = 20
 
@@ -11,7 +11,7 @@ func _process(delta):
 	if(position.x < -10):
 		queue_free()
 		
-func _on_area_2d_body_entered(body):
+func _on_area_3d_body_entered(body):
 	if(body is Player):
 		match victim_type:
 			#Poor

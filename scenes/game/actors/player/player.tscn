@@ -124,7 +124,7 @@ _data = {
 script = ExtResource("1_6e15m")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(-2.51326e-05, -4.2494, 2.89893, 0, 4.2494, 2.89893, -6.94272, 1.53828e-05, -1.04941e-05, -0.00485694, 0.00972414, 0)
+transform = Transform3D(-2.17199e-05, -4.24264, 4.24264, 0, 4.24264, 4.24264, -6, 1.53583e-05, -1.53583e-05, 0, 0, 0)
 texture_filter = 0
 texture = ExtResource("2_2ql6i")
 hframes = 5

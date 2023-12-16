@@ -7,8 +7,8 @@ func _ready():
 	victim_type = 3
 	match randi_range(1,3):
 		1:
-			$Sprite2D.texture = TEXT_1
+			$Sprite3D.texture = TEXT_1
 		2:
-			$Sprite2D.texture = TEXT_2
+			$Sprite3D.texture = TEXT_2
 		3:
-			$Sprite2D.texture = TEXT_3
+			$Sprite3D.texture = TEXT_3

@@ -12,11 +12,6 @@ func _process(delta):
 	if(position.x < -10):
 		queue_free()
 
-
-func _on_body_entered(body):
-	if (body is Player):
-		body.hp -= 10
-
 static func set_speed_factor(factor: float):
 	speed_factor = factor
 
