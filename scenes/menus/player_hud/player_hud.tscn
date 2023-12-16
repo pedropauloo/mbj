@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmrq3bklshgm4"]
+
+[ext_resource type="Script" path="res://scenes/menus/player_hud/player_hud.gd" id="1_1yny6"]
+
+[sub_resource type="Gradient" id="Gradient_rjfw5"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ksoaa"]
+gradient = SubResource("Gradient_rjfw5")
+width = 255
+fill_to = Vector2(0.00711744, 0)
+
+[sub_resource type="Gradient" id="Gradient_obrrg"]
+offsets = PackedFloat32Array(0, 0.927856, 0.943888, 0.995992, 1)
+colors = PackedColorArray(0, 1, 0, 1, 0.286573, 0.286573, 0.286573, 1, 0.302605, 0.302605, 0.302605, 1, 0.101143, 0.101143, 0.101143, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dygss"]
+gradient = SubResource("Gradient_obrrg")
+width = 255
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 1)
+
+[node name="player_hud" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_1yny6")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 2
+offset_left = 384.0
+offset_top = 45.0
+offset_right = 461.0
+offset_bottom = 117.0
+theme_override_font_sizes/font_size = 50
+text = "0m"
+horizontal_alignment = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 45.0
+offset_right = 337.0
+offset_bottom = 109.0
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="HpLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 43
+text = "HP"
+uppercase = true
+metadata/_edit_lock_ = true
+
+[node name="HpBar" type="TextureProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+value = 100.0
+texture_under = SubResource("GradientTexture2D_ksoaa")
+texture_progress = SubResource("GradientTexture2D_dygss")

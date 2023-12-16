@@ -1,4 +1,4 @@
-extends Menu
+extends GUI
 @onready var id = 0
 signal play()
 signal back_menu()

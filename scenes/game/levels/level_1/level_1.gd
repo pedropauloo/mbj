@@ -23,7 +23,7 @@ func _on_timer_wall_timeout():
 
 func _on_timer_points_timeout():
 	score += 1
-	$Score.text = str(score) + 'm'
+	$player_hud.score = score
 
 
 

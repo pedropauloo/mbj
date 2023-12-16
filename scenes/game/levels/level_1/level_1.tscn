@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://7yu0eerkbu38"]
+[gd_scene load_steps=14 format=3 uid="uid://7yu0eerkbu38"]
 
 [ext_resource type="Script" path="res://scenes/game/levels/level_1/level_1.gd" id="1_lyuwy"]
 [ext_resource type="PackedScene" uid="uid://c3idsj77kmk8h" path="res://scenes/game/levels/auto_scroller/auto_scroller.tscn" id="2_blas5"]
 [ext_resource type="Texture2D" uid="uid://cwuitq8jhh8de" path="res://assets/tilesets/road_desert.png" id="3_0ac47"]
 [ext_resource type="Shader" path="res://assets/shaders/auto_scroller.gdshader" id="3_r4p6r"]
 [ext_resource type="PackedScene" uid="uid://dh8kv8ss7haw0" path="res://scenes/game/actors/player/player.tscn" id="5_yo2an"]
+[ext_resource type="PackedScene" uid="uid://bmrq3bklshgm4" path="res://scenes/menus/player_hud/player_hud.tscn" id="6_ml1qe"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6qls1"]
 
@@ -94,6 +95,8 @@ metadata/_edit_lock_ = true
 [node name="player" parent="." instance=ExtResource("5_yo2an")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15, 1, -1)
 
+[node name="player_hud" parent="." instance=ExtResource("6_ml1qe")]
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, -3.93408e-08, 3.93408e-08, 0, 0.707107, 0.707107, -5.56363e-08, -0.707107, 0.707107, 21, 15, 6)
 
@@ -103,12 +106,6 @@ autostart = true
 
 [node name="TimerPoints" type="Timer" parent="."]
 autostart = true
-
-[node name="Score" type="Label" parent="."]
-offset_right = 193.0
-offset_bottom = 58.0
-theme_override_font_sizes/font_size = 50
-text = "0m"
 
 [connection signal="timeout" from="TimerWall" to="." method="_on_timer_wall_timeout"]
 [connection signal="timeout" from="TimerPoints" to="." method="_on_timer_points_timeout"]

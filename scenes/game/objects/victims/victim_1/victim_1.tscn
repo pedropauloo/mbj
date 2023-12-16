@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckes8qvpd2ik1"]
+
+[ext_resource type="Script" path="res://scenes/game/objects/victims/victim_1/victim_1.gd" id="1_arhx8"]
+[ext_resource type="Texture2D" uid="uid://dnombxca8qyoe" path="res://assets/sprites/pessoas/Customer1FF.png" id="1_mjtnj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oj177"]
+size = Vector2(20, 36)
+
+[node name="victim_1" type="Node2D"]
+script = ExtResource("1_arhx8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mjtnj")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_oj177")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,4 +1,4 @@
-extends Menu
+extends GUI
 @onready var id = 1
 signal play()
 signal quit()
