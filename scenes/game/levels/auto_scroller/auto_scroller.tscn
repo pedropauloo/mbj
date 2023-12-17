@@ -1,6 +1,5 @@
-[gd_scene load_steps=16 format=3 uid="uid://c3idsj77kmk8h"]
+[gd_scene load_steps=15 format=3 uid="uid://c3idsj77kmk8h"]
 
-[ext_resource type="Shader" path="res://assets/shaders/auto_scroller.gdshader" id="1_3ddvn"]
 [ext_resource type="Texture2D" uid="uid://chtqlvorj2hgg" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/sky.png" id="2_rpi74"]
 [ext_resource type="Shader" path="res://assets/shaders/auto_scroller.gdshader" id="2_s8vwb"]
 [ext_resource type="Texture2D" uid="uid://cky64yic8ajbg" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/far-clouds.png" id="3_irfv1"]
@@ -11,29 +10,34 @@
 [ext_resource type="AudioStream" uid="uid://dmhb67ro1gulp" path="res://assets/audio/music/summer nights.ogg" id="9_ynjcr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0rxlh"]
-shader = ExtResource("1_3ddvn")
+shader = ExtResource("2_s8vwb")
 shader_parameter/direction = Vector2(1, 0)
 shader_parameter/speed_scale = 0.02
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jv7m2"]
-render_priority = 0
 shader = ExtResource("2_s8vwb")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.02
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qattk"]
-render_priority = 0
 shader = ExtResource("2_s8vwb")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.02
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_maog4"]
-render_priority = 0
 shader = ExtResource("2_s8vwb")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.02
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cpwus"]
-render_priority = 0
 shader = ExtResource("2_s8vwb")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.02
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vc8l8"]
-render_priority = 0
 shader = ExtResource("2_s8vwb")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.02
 
 [node name="AutoScroller" type="Node2D"]
 material = SubResource("ShaderMaterial_0rxlh")

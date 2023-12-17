@@ -30,7 +30,7 @@ func connect_signals():
 
 
 func _on_play():
-	var level = load("res://scenes/game/levels/level_1/level_1.tscn").instantiate()
+	var level = load("res://scenes/game/levels/level_2/level_2.tscn").instantiate()
 	change_level(level)
 	
 func _on_back_menu():

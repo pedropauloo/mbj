@@ -1,3 +1,63 @@
-[gd_scene format=3 uid="uid://q4kkxpp0q8si"]
+[gd_scene load_steps=12 format=3 uid="uid://q4kkxpp0q8si"]
+
+[ext_resource type="PackedScene" uid="uid://c3idsj77kmk8h" path="res://scenes/game/levels/auto_scroller/auto_scroller.tscn" id="1_xp5ss"]
+[ext_resource type="Texture2D" uid="uid://s7aru2ipivxj" path="res://assets/tilesets/city/-6.png" id="2_f0gd8"]
+[ext_resource type="Texture2D" uid="uid://carsi40s4p6eb" path="res://assets/tilesets/city/-5.png" id="3_0coid"]
+[ext_resource type="Texture2D" uid="uid://xggv4e885c1e" path="res://assets/tilesets/city/-4.png" id="4_y51bt"]
+[ext_resource type="Texture2D" uid="uid://ccl8fcbgmfskt" path="res://assets/tilesets/city/-2.png" id="5_rrwku"]
+[ext_resource type="Texture2D" uid="uid://woxxjtgwygw4" path="res://assets/tilesets/city/-1.png" id="6_76y4j"]
+[ext_resource type="Texture2D" uid="uid://7gtm052cql8y" path="res://assets/tilesets/city/0.png" id="7_eh8mh"]
+[ext_resource type="Shader" path="res://assets/shaders/auto_scroller.gdshader" id="8_bygyl"]
+[ext_resource type="Texture2D" uid="uid://c0m6fasnnccqr" path="res://assets/tilesets/road_city.png" id="9_efele"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oislk"]
+shader = ExtResource("8_bygyl")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nn7hc"]
 
 [node name="level_2" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.172549, 0.145098, 0.27451, 1)
+
+[node name="AutoScroller" parent="." instance=ExtResource("1_xp5ss")]
+scale = Vector2(2, 0.9)
+
+[node name="BackFixedTuxture" parent="AutoScroller" index="0"]
+texture = ExtResource("2_f0gd8")
+
+[node name="TextureRectFarClouds" parent="AutoScroller" index="1"]
+texture = ExtResource("3_0coid")
+
+[node name="TextureRectNearClouds" parent="AutoScroller" index="2"]
+use_parent_material = false
+texture = ExtResource("4_y51bt")
+
+[node name="TextureRectFarMountains" parent="AutoScroller" index="3"]
+texture = ExtResource("5_rrwku")
+
+[node name="TextureRectMountains" parent="AutoScroller" index="4"]
+use_parent_material = false
+texture = ExtResource("6_76y4j")
+
+[node name="TextureRectTrees" parent="AutoScroller" index="5"]
+use_parent_material = false
+texture = ExtResource("7_eh8mh")
+
+[node name="Road" type="Node2D" parent="."]
+material = SubResource("ShaderMaterial_oislk")
+position = Vector2(0, 325)
+scale = Vector2(1.6, 2)
+
+[node name="TextureRect" type="TextureRect" parent="Road"]
+material = SubResource("ShaderMaterial_nn7hc")
+use_parent_material = true
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_efele")
+
+[editable path="AutoScroller"]
