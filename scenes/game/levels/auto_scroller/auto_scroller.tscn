@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://assets/shaders/auto_scroller.gdshader" id="1_3ddvn"]
 [ext_resource type="Texture2D" uid="uid://chtqlvorj2hgg" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/sky.png" id="2_rpi74"]
-[ext_resource type="Shader" path="res://auto_scroller.gdshader" id="2_s8vwb"]
+[ext_resource type="Shader" path="res://assets/shaders/auto_scroller.gdshader" id="2_s8vwb"]
 [ext_resource type="Texture2D" uid="uid://cky64yic8ajbg" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/far-clouds.png" id="3_irfv1"]
 [ext_resource type="Texture2D" uid="uid://vqcrxlpwvob4" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/near-clouds.png" id="4_8pgpc"]
 [ext_resource type="Texture2D" uid="uid://d22sbvv8jnryv" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/far-mountains.png" id="5_5ypxh"]
