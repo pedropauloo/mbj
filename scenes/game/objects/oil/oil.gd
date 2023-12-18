@@ -1,28 +1,26 @@
 extends Obstacle
 
-var status := 0
+var is_entered = false
+var direction = 1
 var collidedPlayer: Player = null
 
 func _process(_delta):
-	match status:
-		0: 
-			pass
-		1: 
-			collidedPlayer.velocity.z = 1.5 + randf_range(0, 1)
-			collidedPlayer.move_and_slide()
-		2:
-			collidedPlayer.velocity.z = -(1.5 + randf_range(0, 1))
-			collidedPlayer.move_and_slide()
+	if(is_entered):
+		var rand_pos = direction * (1.5 + randf_range(2, 3.5))
+		collidedPlayer.velocity.z = rand_pos
+		if direction > 0:
+			collidedPlayer.animation.play("turn_right")
+		elif direction < 0:
+			collidedPlayer.animation.play("turn_left")
+		collidedPlayer.move_and_slide()
 
 func _on_body_entered(body):
 	if (body is Player):
 		$Timer.start()
 		collidedPlayer = body
-		status = 1
+		direction = 1 if randf_range(-1, 1) > 0.0 else -1
+		is_entered = true
 
 
 func _on_timer_timeout():
-	status += 1
-
-	if(status < 3):
-		$Timer.start()
+	is_entered = false
