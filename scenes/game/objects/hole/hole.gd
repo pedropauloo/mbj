@@ -12,9 +12,6 @@ func _process(delta):
 
 		speed_factor = lerp(speed_factor, speed_factor * 0.5, 1)
 
-			
-
-
 func _on_body_entered(body):
 	if (body is Player):
 		is_entered = true
