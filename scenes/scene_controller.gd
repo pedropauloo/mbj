@@ -19,13 +19,13 @@ func connect_signals():
 		
 	#Levels
 	elif(current_level.id == 10):
-		Obstacle.set_speed_factor(1)
+		Obstacle.set_speed(10)
 		current_level.game_over.connect(_on_game_over)
 	elif(current_level.id == 20):
-		Obstacle.set_speed_factor(2)
+		Obstacle.set_speed(20)
 		current_level.game_over.connect(_on_game_over)
 	else:
-		Obstacle.set_speed_factor(3)
+		Obstacle.set_speed(30)
 		current_level.game_over.connect(_on_game_over)
 
 

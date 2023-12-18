@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b3oji7kil6ikw" path="res://assets/sprites/dois caras uma moto/dois caras uma moto.png" id="2_2ql6i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u4pkw"]
-size = Vector3(1.2, 1, 1.2)
+size = Vector3(0.51134, 1, 1.34028)
 
 [sub_resource type="Animation" id="Animation_ghrbo"]
 length = 0.001
@@ -130,11 +130,13 @@ texture = ExtResource("2_2ql6i")
 hframes = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.374844, 0, 0.0724369)
 shape = SubResource("BoxShape3D_u4pkw")
 
 [node name="HitBox" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0668287)
 shape = SubResource("BoxShape3D_u4pkw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
