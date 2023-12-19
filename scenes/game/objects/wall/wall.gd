@@ -1,4 +1,19 @@
 extends Obstacle
+var rock = preload("res://assets/sprites/obstacles/rock.png")
+var car = preload("res://assets/sprites/obstacles/car on firing.png")
+#var smt = preload()
+
+func _ready():
+	match get_parent().get_parent().id:
+		10:
+			$Sprite2D.texture = rock
+			$Sprite2D.scale = Vector3(7,7,7)
+		20:
+			$Sprite2D.texture = car
+			$Sprite2D.scale = Vector3(1,1,1)
+		30:
+			pass
+	
 
 func _on_body_entered(body):
 	if (body is Player):

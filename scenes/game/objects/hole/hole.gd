@@ -1,5 +1,13 @@
 extends Obstacle
 
+func _ready():
+	match get_parent().get_parent().id:
+		10:
+			$Sprite2D.modulate = Color(1,0.80,0.05,0.78)
+		20:
+			Color(1,1,1,1)
+		30:
+			pass
 
 func _on_body_entered(body):
 	if (body is Player):

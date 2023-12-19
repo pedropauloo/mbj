@@ -11,6 +11,7 @@ script = ExtResource("1_ol174")
 
 [node name="Sprite2D" type="Sprite3D" parent="."]
 transform = Transform3D(-1, -1.0677e-07, -1.0677e-07, 0, 0.707107, -0.707107, 1.50996e-07, -0.707107, -0.707107, 0, 0, 0)
+texture_filter = 0
 texture = ExtResource("2_ep0u8")
 
 [node name="CollisionShape2D" type="CollisionShape3D" parent="."]
