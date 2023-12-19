@@ -5,7 +5,7 @@ func _ready():
 		10:
 			$Sprite2D.modulate = Color(1,0.80,0.05,0.78)
 		20:
-			Color(1,1,1,1)
+			$Sprite2D.modulate = Color(1,1,1,1)
 		30:
 			pass
 
