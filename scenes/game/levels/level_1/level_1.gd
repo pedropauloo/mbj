@@ -103,3 +103,4 @@ func _on_timer_victims_timeout():
 			v2_ready = true
 		3:
 			v3_ready = true
+

@@ -4,7 +4,6 @@ extends Node
 
 func _ready():
 	connect_signals()
-	
 
 func connect_signals():
 	# Main Menu

@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsxfnhp7dt32a"]
+[gd_scene load_steps=4 format=3 uid="uid://dsxfnhp7dt32a"]
 
 [ext_resource type="Script" path="res://scenes/scene_controller.gd" id="1_dxewk"]
+[ext_resource type="AudioStream" uid="uid://dmhb67ro1gulp" path="res://assets/audio/music/summer nights.ogg" id="2_560cw"]
 [ext_resource type="PackedScene" uid="uid://dw38rd14a44p1" path="res://scenes/menus/main_menu/main_menu.tscn" id="2_u86by"]
 
 [node name="scene_controller" type="Node"]
 script = ExtResource("1_dxewk")
 
 [node name="GlobalAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_560cw")
+autoplay = true
 
 [node name="main_menu" parent="." instance=ExtResource("2_u86by")]

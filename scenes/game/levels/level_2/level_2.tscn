@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://q4kkxpp0q8si"]
+[gd_scene load_steps=22 format=3 uid="uid://q4kkxpp0q8si"]
 
 [ext_resource type="Script" path="res://scenes/game/levels/level_2/level_2.gd" id="1_qwrx2"]
 [ext_resource type="PackedScene" uid="uid://c3idsj77kmk8h" path="res://scenes/game/levels/auto_scroller/auto_scroller.tscn" id="1_xp5ss"]
@@ -13,16 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://dh8kv8ss7haw0" path="res://scenes/game/actors/player/player.tscn" id="11_r5qrc"]
 [ext_resource type="PackedScene" uid="uid://bmrq3bklshgm4" path="res://scenes/menus/player_hud/player_hud.tscn" id="12_5pfy8"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_y2h7p"]
-size = Vector3(200, 1, 10)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oislk"]
-shader = ExtResource("8_bygyl")
-shader_parameter/direction = Vector2(1, 0)
-shader_parameter/speed_scale = 0.02
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nn7hc"]
-
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_001ae"]
 
 [sub_resource type="Sky" id="Sky_nn3gx"]
@@ -33,10 +23,29 @@ background_mode = 3
 sky = SubResource("Sky_nn3gx")
 tonemap_mode = 2
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_y2h7p"]
+size = Vector3(200, 1, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oislk"]
+shader = ExtResource("8_bygyl")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nn7hc"]
+
+[sub_resource type="Gradient" id="Gradient_454xx"]
+offsets = PackedFloat32Array(0, 0.686782)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0o1ax"]
+gradient = SubResource("Gradient_454xx")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_jr3q7"]
 size = Vector3(200, 10, 0)
 
-[node name="level_3" type="Node3D"]
+[node name="level_2" type="Node3D"]
 script = ExtResource("1_qwrx2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -44,6 +53,12 @@ show_behind_parent = true
 offset_right = 1232.0
 offset_bottom = 760.0
 color = Color(0.996078, 0.631373, 0.6, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4kbxx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 
 [node name="AutoScroller" parent="." instance=ExtResource("1_xp5ss")]
 scale = Vector2(2, 0.9)
@@ -89,11 +104,21 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("9_efele")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_4kbxx")
+[node name="Lights" type="Node2D" parent="."]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+[node name="PoliceLight1" type="PointLight2D" parent="Lights"]
+position = Vector2(16, 384)
+scale = Vector2(5, 5)
+color = Color(1, 0, 0, 1)
+energy = 16.0
+texture = SubResource("GradientTexture2D_0o1ax")
+
+[node name="PoliceLight2" type="PointLight2D" parent="Lights"]
+position = Vector2(48, 568)
+scale = Vector2(5, 5)
+color = Color(0, 0, 1, 1)
+energy = 16.0
+texture = SubResource("GradientTexture2D_0o1ax")
 
 [node name="Walls" type="Node3D" parent="."]
 

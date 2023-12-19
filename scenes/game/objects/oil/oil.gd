@@ -5,5 +5,9 @@ var is_entered = false
 func _on_body_entered(body):
 	if (body is Player):
 		is_entered = true
+		speed_variation = -speed_variation
+		status = 2
+		$Timer.start()
 		
-		is_entered = false
+func _on_timer_timeout():
+	set_speed_factor(speed_factor + speed_variation)
