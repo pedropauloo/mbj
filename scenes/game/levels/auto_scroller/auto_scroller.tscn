@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c3idsj77kmk8h"]
+[gd_scene load_steps=14 format=3 uid="uid://c3idsj77kmk8h"]
 
 [ext_resource type="Texture2D" uid="uid://chtqlvorj2hgg" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/sky.png" id="2_rpi74"]
 [ext_resource type="Shader" path="res://assets/shaders/auto_scroller.gdshader" id="2_s8vwb"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://d22sbvv8jnryv" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/far-mountains.png" id="5_5ypxh"]
 [ext_resource type="Texture2D" uid="uid://ir2n5o1snup8" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/mountains.png" id="6_d0rd6"]
 [ext_resource type="Texture2D" uid="uid://c7x2fpip36uxh" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/trees.png" id="7_bft2p"]
-[ext_resource type="AudioStream" uid="uid://dmhb67ro1gulp" path="res://assets/audio/music/summer nights.ogg" id="9_ynjcr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0rxlh"]
 shader = ExtResource("2_s8vwb")
@@ -85,7 +84,3 @@ offset_right = 320.0
 offset_bottom = 240.0
 texture = ExtResource("7_bft2p")
 stretch_mode = 1
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_ynjcr")
-autoplay = true

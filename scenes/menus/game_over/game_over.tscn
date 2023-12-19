@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b875bod1sery4"]
+[gd_scene load_steps=4 format=3 uid="uid://b875bod1sery4"]
 
 [ext_resource type="Script" path="res://scenes/menus/game_over/game_over.gd" id="1_343qj"]
+[ext_resource type="Theme" uid="uid://c1rii70uampsj" path="res://assets/ui_presets/title_theme.tres" id="1_c5ase"]
+[ext_resource type="FontFile" uid="uid://2nly7s8oyw1t" path="res://assets/fonts/Typodermic Fonts/almonte woodgrain.otf" id="3_1u3qe"]
 
 [node name="game_over" type="Control"]
 layout_mode = 3
@@ -9,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_c5ase")
 script = ExtResource("1_343qj")
 metadata/_edit_lock_ = true
 
@@ -19,21 +22,38 @@ anchor_left = -0.16
 anchor_top = 0.012
 anchor_right = -0.16
 anchor_bottom = 0.012
-offset_left = 480.32
-offset_top = 184.224
-offset_right = 1043.32
-offset_bottom = 356.224
+offset_left = 224.32
+offset_top = 128.224
+offset_right = 1272.32
+offset_bottom = 374.224
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="Pontuacao" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.16
+anchor_top = 0.012
+anchor_right = -0.16
+anchor_bottom = 0.012
+offset_left = 248.32
+offset_top = 264.224
+offset_right = 1296.32
+offset_bottom = 510.224
+theme_override_colors/font_color = Color(1, 0.509804, 0, 1)
+theme_override_fonts/font = ExtResource("3_1u3qe")
 theme_override_font_sizes/font_size = 60
-text = "Game Over
-Pontuação Final:     "
+text = "Pontuação Final:     "
 horizontal_alignment = 1
 
 [node name="FinalScore" type="Label" parent="."]
 layout_mode = 0
-offset_left = 792.0
-offset_top = 280.0
-offset_right = 904.0
-offset_bottom = 366.0
+offset_left = 760.0
+offset_top = 272.0
+offset_right = 872.0
+offset_bottom = 395.0
+theme_override_colors/font_color = Color(1, 0.509804, 0, 1)
+theme_override_fonts/font = ExtResource("3_1u3qe")
 theme_override_font_sizes/font_size = 60
 text = "0"
 

@@ -1,27 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmrq3bklshgm4"]
+[gd_scene load_steps=7 format=3 uid="uid://bmrq3bklshgm4"]
 
 [ext_resource type="Script" path="res://scenes/menus/player_hud/player_hud.gd" id="1_1yny6"]
-
-[sub_resource type="Gradient" id="Gradient_rjfw5"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ksoaa"]
-gradient = SubResource("Gradient_rjfw5")
-width = 255
-fill_to = Vector2(0.00711744, 0)
-
-[sub_resource type="Gradient" id="Gradient_obrrg"]
-offsets = PackedFloat32Array(0, 0.927856, 0.943888, 0.995992, 1)
-colors = PackedColorArray(0, 1, 0, 1, 0.286573, 0.286573, 0.286573, 1, 0.302605, 0.302605, 0.302605, 1, 0.101143, 0.101143, 0.101143, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_dygss"]
-gradient = SubResource("Gradient_obrrg")
-width = 255
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 1)
+[ext_resource type="Theme" uid="uid://c1rii70uampsj" path="res://assets/ui_presets/title_theme.tres" id="1_d1th5"]
+[ext_resource type="FontFile" uid="uid://2nly7s8oyw1t" path="res://assets/fonts/Typodermic Fonts/almonte woodgrain.otf" id="3_1ep8j"]
+[ext_resource type="Texture2D" uid="uid://d3c7jtckmtkrb" path="res://assets/ui_presets/bar-under.png" id="4_wnoqe"]
+[ext_resource type="Texture2D" uid="uid://b3hb1bselhhs6" path="res://assets/ui_presets/bar_over.png" id="5_sgyyl"]
+[ext_resource type="Texture2D" uid="uid://dgntah74fp42e" path="res://assets/ui_presets/bar-progress.png" id="6_ha2nu"]
 
 [node name="player_hud" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+theme = ExtResource("1_d1th5")
 script = ExtResource("1_1yny6")
 
 [node name="Score" type="Label" parent="."]
@@ -30,29 +19,47 @@ offset_left = 384.0
 offset_top = 45.0
 offset_right = 461.0
 offset_bottom = 117.0
+theme_override_colors/font_color = Color(1, 0.509804, 0, 1)
+theme_override_constants/shadow_offset_x = -2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 20
+theme_override_fonts/font = ExtResource("3_1ep8j")
 theme_override_font_sizes/font_size = 50
 text = "0m"
-horizontal_alignment = 2
 
 [node name="VBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 45.0
-offset_right = 337.0
+offset_right = 374.0
 offset_bottom = 109.0
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="HpLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_constants/shadow_offset_x = -2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 20
 theme_override_font_sizes/font_size = 43
-text = "HP"
+text = "R$:"
 uppercase = true
 metadata/_edit_lock_ = true
 
 [node name="HpBar" type="TextureProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-size_flags_vertical = 3
-value = 100.0
-texture_under = SubResource("GradientTexture2D_ksoaa")
-texture_progress = SubResource("GradientTexture2D_dygss")
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("4_wnoqe")
+texture_over = ExtResource("5_sgyyl")
+texture_progress = ExtResource("6_ha2nu")
+tint_under = Color(0.67451, 1, 0.670588, 1)
+tint_over = Color(1, 1, 0.223529, 1)
+tint_progress = Color(0, 0.431373, 0.0862745, 1)

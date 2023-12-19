@@ -9,12 +9,12 @@
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6qls1"]
 
-[sub_resource type="Sky" id="Sky_nn3gx"]
+[sub_resource type="Sky" id="Sky_ft4wx"]
 sky_material = SubResource("PanoramaSkyMaterial_6qls1")
 
 [sub_resource type="Environment" id="Environment_ako27"]
 background_mode = 3
-sky = SubResource("Sky_nn3gx")
+sky = SubResource("Sky_ft4wx")
 tonemap_mode = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_53ueg"]

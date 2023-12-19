@@ -14,13 +14,14 @@ var v1_ready = false
 var v2_ready = false
 var v3_ready = false
 
+var next_level = preload("res://scenes/game/levels/level_2/level_2.tscn")
+
 func _ready():
 	for i in $Obstacles.get_children():
 		i.queue_free()
 		
 func _process(delta):
 	super._process(delta)
-	
 	# Obstacles
 	if(wall_ready):
 		var wall_inst = wall.instantiate()
@@ -70,6 +71,12 @@ func _process(delta):
 		v3_inst.position.z = -5
 		$Victims.add_child(v3_inst)
 		v3_ready = false
+	
+	# Next Level:
+	if(score>50):
+		get_parent().save_game()
+		emit_signal("change_level",next_level)
+	
 	
 	
 func _on_timer_obstacles_timeout():

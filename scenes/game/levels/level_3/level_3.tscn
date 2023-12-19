@@ -1,23 +1,23 @@
-[gd_scene load_steps=20 format=3 uid="uid://q4kkxpp0q8si"]
+[gd_scene load_steps=20 format=3 uid="uid://bhimu7x0d517v"]
 
-[ext_resource type="Script" path="res://scenes/game/levels/level_2/level_2.gd" id="1_qwrx2"]
-[ext_resource type="PackedScene" uid="uid://c3idsj77kmk8h" path="res://scenes/game/levels/auto_scroller/auto_scroller.tscn" id="1_xp5ss"]
-[ext_resource type="Texture2D" uid="uid://s7aru2ipivxj" path="res://assets/tilesets/city/-6.png" id="2_f0gd8"]
-[ext_resource type="Texture2D" uid="uid://carsi40s4p6eb" path="res://assets/tilesets/city/-5.png" id="3_0coid"]
-[ext_resource type="Texture2D" uid="uid://xggv4e885c1e" path="res://assets/tilesets/city/-4.png" id="4_y51bt"]
-[ext_resource type="Texture2D" uid="uid://ccl8fcbgmfskt" path="res://assets/tilesets/city/-2.png" id="5_rrwku"]
-[ext_resource type="Texture2D" uid="uid://woxxjtgwygw4" path="res://assets/tilesets/city/-1.png" id="6_76y4j"]
-[ext_resource type="Texture2D" uid="uid://7gtm052cql8y" path="res://assets/tilesets/city/0.png" id="7_eh8mh"]
-[ext_resource type="Shader" path="res://assets/shaders/auto_scroller.gdshader" id="8_bygyl"]
-[ext_resource type="Texture2D" uid="uid://c0m6fasnnccqr" path="res://assets/tilesets/road_city.png" id="9_efele"]
-[ext_resource type="PackedScene" uid="uid://dh8kv8ss7haw0" path="res://scenes/game/actors/player/player.tscn" id="11_r5qrc"]
-[ext_resource type="PackedScene" uid="uid://bmrq3bklshgm4" path="res://scenes/menus/player_hud/player_hud.tscn" id="12_5pfy8"]
+[ext_resource type="Script" path="res://scenes/game/levels/level_2/level_2.gd" id="1_vqkjg"]
+[ext_resource type="PackedScene" uid="uid://c3idsj77kmk8h" path="res://scenes/game/levels/auto_scroller/auto_scroller.tscn" id="2_yr8kx"]
+[ext_resource type="Texture2D" uid="uid://s7aru2ipivxj" path="res://assets/tilesets/city/-6.png" id="3_ldmq6"]
+[ext_resource type="Texture2D" uid="uid://carsi40s4p6eb" path="res://assets/tilesets/city/-5.png" id="4_7yhvm"]
+[ext_resource type="Texture2D" uid="uid://xggv4e885c1e" path="res://assets/tilesets/city/-4.png" id="5_ucrr3"]
+[ext_resource type="Texture2D" uid="uid://ccl8fcbgmfskt" path="res://assets/tilesets/city/-2.png" id="6_3qii3"]
+[ext_resource type="Texture2D" uid="uid://woxxjtgwygw4" path="res://assets/tilesets/city/-1.png" id="7_dg512"]
+[ext_resource type="Texture2D" uid="uid://7gtm052cql8y" path="res://assets/tilesets/city/0.png" id="8_mex4b"]
+[ext_resource type="Shader" path="res://assets/shaders/auto_scroller.gdshader" id="9_n2dho"]
+[ext_resource type="Texture2D" uid="uid://c0m6fasnnccqr" path="res://assets/tilesets/road_city.png" id="10_v3a7h"]
+[ext_resource type="PackedScene" uid="uid://dh8kv8ss7haw0" path="res://scenes/game/actors/player/player.tscn" id="11_fvllv"]
+[ext_resource type="PackedScene" uid="uid://bmrq3bklshgm4" path="res://scenes/menus/player_hud/player_hud.tscn" id="12_hfq5d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y2h7p"]
 size = Vector3(200, 1, 10)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oislk"]
-shader = ExtResource("8_bygyl")
+shader = ExtResource("9_n2dho")
 shader_parameter/direction = Vector2(1, 0)
 shader_parameter/speed_scale = 0.02
 
@@ -37,7 +37,7 @@ tonemap_mode = 2
 size = Vector3(200, 10, 0)
 
 [node name="level_3" type="Node3D"]
-script = ExtResource("1_qwrx2")
+script = ExtResource("1_vqkjg")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 show_behind_parent = true
@@ -45,29 +45,29 @@ offset_right = 1232.0
 offset_bottom = 760.0
 color = Color(0.996078, 0.631373, 0.6, 1)
 
-[node name="AutoScroller" parent="." instance=ExtResource("1_xp5ss")]
+[node name="AutoScroller" parent="." instance=ExtResource("2_yr8kx")]
 scale = Vector2(2, 0.9)
 
 [node name="BackFixedTuxture" parent="AutoScroller" index="0"]
-texture = ExtResource("2_f0gd8")
+texture = ExtResource("3_ldmq6")
 
 [node name="TextureRectFarClouds" parent="AutoScroller" index="1"]
-texture = ExtResource("3_0coid")
+texture = ExtResource("4_7yhvm")
 
 [node name="TextureRectNearClouds" parent="AutoScroller" index="2"]
 use_parent_material = false
-texture = ExtResource("4_y51bt")
+texture = ExtResource("5_ucrr3")
 
 [node name="TextureRectFarMountains" parent="AutoScroller" index="3"]
-texture = ExtResource("5_rrwku")
+texture = ExtResource("6_3qii3")
 
 [node name="TextureRectMountains" parent="AutoScroller" index="4"]
 use_parent_material = false
-texture = ExtResource("6_76y4j")
+texture = ExtResource("7_dg512")
 
 [node name="TextureRectTrees" parent="AutoScroller" index="5"]
 use_parent_material = false
-texture = ExtResource("7_eh8mh")
+texture = ExtResource("8_mex4b")
 
 [node name="Ground" type="StaticBody3D" parent="AutoScroller"]
 metadata/_edit_group_ = true
@@ -87,7 +87,7 @@ material = SubResource("ShaderMaterial_nn7hc")
 use_parent_material = true
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("9_efele")
+texture = ExtResource("10_v3a7h")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4kbxx")
@@ -115,10 +115,10 @@ metadata/_edit_lock_ = true
 
 [node name="Victims" type="Node3D" parent="."]
 
-[node name="player" parent="." instance=ExtResource("11_r5qrc")]
+[node name="player" parent="." instance=ExtResource("11_fvllv")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15, 1, -1)
 
-[node name="player_hud" parent="." instance=ExtResource("12_5pfy8")]
+[node name="player_hud" parent="." instance=ExtResource("12_hfq5d")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, -3.93408e-08, 3.93408e-08, 0, 0.707107, 0.707107, -5.56363e-08, -0.707107, 0.707107, 21, 15, 6)

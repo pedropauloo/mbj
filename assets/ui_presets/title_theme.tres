@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://c1rii70uampsj"]
+
+[ext_resource type="FontFile" uid="uid://boprqy7ku3opr" path="res://assets/fonts/Typodermic Fonts/almonte.otf" id="1_vnysv"]
+[ext_resource type="FontFile" uid="uid://blig5x2kspkfv" path="res://assets/fonts/Typodermic Fonts/degrassi.otf" id="1_ybvky"]
+[ext_resource type="StyleBox" uid="uid://cl6uywxw0aa5m" path="res://assets/ui_presets/purple_btn.tres" id="2_ng1pu"]
+[ext_resource type="StyleBox" uid="uid://0cv1laifjotd" path="res://assets/ui_presets/purple_btn_hover.tres" id="2_xxx37"]
+
+[resource]
+Button/colors/font_outline_color = Color(0.0588235, 0, 0.160784, 1)
+Button/constants/outline_size = 5
+Button/font_sizes/font_size = 25
+Button/fonts/font = ExtResource("1_vnysv")
+Button/styles/hover = ExtResource("2_xxx37")
+Button/styles/normal = ExtResource("2_ng1pu")
+Label/colors/font_color = Color(0.494118, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0.0588235, 0, 0.160784, 1)
+Label/constants/shadow_offset_x = -5
+Label/constants/shadow_offset_y = 5
+Label/constants/shadow_outline_size = 45
+Label/font_sizes/font_size = 100
+Label/fonts/font = ExtResource("1_ybvky")

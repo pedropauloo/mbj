@@ -1,37 +1,95 @@
-[gd_scene load_steps=2 format=3 uid="uid://dw38rd14a44p1"]
+[gd_scene load_steps=7 format=3 uid="uid://dw38rd14a44p1"]
 
 [ext_resource type="Script" path="res://scenes/menus/main_menu/main_menu.gd" id="1_lsc0o"]
+[ext_resource type="PackedScene" uid="uid://c3idsj77kmk8h" path="res://scenes/game/levels/auto_scroller/auto_scroller.tscn" id="2_370cs"]
+[ext_resource type="Theme" uid="uid://c1rii70uampsj" path="res://assets/ui_presets/title_theme.tres" id="2_fwsg7"]
+[ext_resource type="Texture2D" uid="uid://dekns2g2msqtn" path="res://assets/sprites/carro de policia/police_car.png" id="3_8oroi"]
+[ext_resource type="FontFile" uid="uid://2nly7s8oyw1t" path="res://assets/fonts/Typodermic Fonts/almonte woodgrain.otf" id="3_umu2v"]
+[ext_resource type="Texture2D" uid="uid://b3oji7kil6ikw" path="res://assets/sprites/dois caras uma moto/dois caras uma moto.png" id="4_skbbx"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+theme = ExtResource("2_fwsg7")
 script = ExtResource("1_lsc0o")
 
-[node name="Title" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 256.0
-offset_top = 64.0
-offset_right = 897.0
-offset_bottom = 320.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 60
+[node name="AutoScroller" parent="." instance=ExtResource("2_370cs")]
+scale = Vector2(4, 4)
+
+[node name="TextureRectFarMountains" parent="AutoScroller" index="3"]
+visible = false
+
+[node name="TextureRectMountains" parent="AutoScroller" index="4"]
+visible = false
+
+[node name="TextureRectTrees" parent="AutoScroller" index="5"]
+visible = false
+
+[node name="Car" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -321.0
+offset_top = 199.0
+offset_right = -239.0
+offset_bottom = 242.0
+scale = Vector2(10, 10)
+texture = ExtResource("3_8oroi")
+flip_h = true
+
+[node name="Bike" type="Sprite2D" parent="."]
+position = Vector2(926, 479)
+rotation = -0.25681
+scale = Vector2(10, 10)
+texture = ExtResource("4_skbbx")
+hframes = 5
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 631.0
+offset_right = 1295.0
+offset_bottom = 944.0
+color = Color(0.325441, 0.325441, 0.325441, 1)
+
+[node name="Title2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -5.0
+offset_top = -153.0
+offset_right = 35.0
+offset_bottom = -113.0
+theme = ExtResource("2_fwsg7")
+
+[node name="Moto" type="Label" parent="Title2"]
+layout_mode = 0
+offset_left = 338.0
+offset_top = 318.0
+offset_right = 812.0
+offset_bottom = 562.0
+rotation = 0.0106892
+theme_override_colors/font_color = Color(1, 0.509804, 0, 1)
+theme_override_fonts/font = ExtResource("3_umu2v")
+theme_override_font_sizes/font_size = 200
+text = "1 Moto
+"
+
+[node name="Caras" type="Label" parent="Title2"]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 153.0
+offset_right = 980.0
+offset_bottom = 396.0
+rotation = 0.228461
+theme_override_font_sizes/font_size = 150
 text = "2 Caras
-1 Moto"
+"
 horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Menu" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 384.0
-offset_top = 384.0
-offset_right = 768.0
-offset_bottom = 576.0
+offset_left = 451.0
+offset_top = 406.0
+offset_right = 701.0
+offset_bottom = 598.0
+theme_override_constants/separation = 10
 
 [node name="Play" type="Button" parent="Menu"]
 layout_mode = 2
@@ -43,3 +101,5 @@ text = "Quit"
 
 [connection signal="pressed" from="Menu/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Menu/Quit" to="." method="_on_quit_pressed"]
+
+[editable path="AutoScroller"]
