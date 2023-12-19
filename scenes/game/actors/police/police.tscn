@@ -25,14 +25,14 @@ step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("..:position")
+tracks/0/path = NodePath("..:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(1, 0, 0), Vector3(2, 0, 0), Vector3(3, 0, 0), Vector3(4, 0, 0), Vector3(5, 0, 0)]
+"values": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -95,48 +95,6 @@ tracks/5/keys = {
 "values": [0.0, 0.1, 0.0, 0.1, 0.0, 0.1]
 }
 
-[sub_resource type="Animation" id="Animation_rqac2"]
-resource_name = "riding"
-length = 0.4
-loop_mode = 1
-step = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../police/Sprite3D_P1:position:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../police2/Sprite3D_P2:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.1]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite3D_P3:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.1]
-}
-
 [sub_resource type="Animation" id="Animation_okhj0"]
 resource_name = "approach"
 length = 2.0
@@ -144,14 +102,14 @@ step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("..:position")
+tracks/0/path = NodePath("..:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(5, 0, 0), Vector3(6, 0, 0), Vector3(7, 0, 0), Vector3(8, 0, 0), Vector3(9, 0, 0), Vector3(10, 0, 0), Vector3(11, 0, 0), Vector3(12, 0, 0), Vector3(13, 0, 0), Vector3(14, 0, 0), Vector3(15, 0, 0)]
+"values": [5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -214,6 +172,48 @@ tracks/5/keys = {
 "values": [0.0, 0.1, 0.0, 0.1, 0.0, 0.1, 0.1, 0.0, 0.1, 0.0, 0.1]
 }
 
+[sub_resource type="Animation" id="Animation_rqac2"]
+resource_name = "riding"
+length = 0.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../police/Sprite3D_P1:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../police2/Sprite3D_P2:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D_P3:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.1]
+}
+
 [sub_resource type="Animation" id="Animation_ef444"]
 resource_name = "approach"
 length = 1.2
@@ -221,14 +221,14 @@ step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("..:position")
+tracks/0/path = NodePath("..:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(5, 0, 0), Vector3(4, 0, 0), Vector3(3, 0, 0), Vector3(2, 0, 0), Vector3(1, 0, 0), Vector3(0, 0, 0)]
+"values": [5.0, 4.0, 3.0, 2.0, 1.0, Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -327,6 +327,7 @@ texture = SubResource("GradientTexture2D_o18f7")
 
 [node name="police" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.5, -3)
+gravity_scale = 0.0
 
 [node name="Sprite3D_P1" type="Sprite3D" parent="police"]
 transform = Transform3D(15, 0, 0, 0, 10.6066, 10.6066, 0, -10.6066, 10.6066, 0, 0, 0)
@@ -341,6 +342,7 @@ metadata/_edit_lock_ = true
 
 [node name="police2" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.5, -1)
+gravity_scale = 0.0
 
 [node name="Sprite3D_P2" type="Sprite3D" parent="police2"]
 transform = Transform3D(15, 0, 0, 0, 10.6066, 10.6066, 0, -10.6066, 10.6066, 0, 0, 0)
@@ -355,6 +357,7 @@ metadata/_edit_lock_ = true
 
 [node name="police3" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.5, 1)
+gravity_scale = 0.0
 
 [node name="Sprite3D_P3" type="Sprite3D" parent="police3"]
 transform = Transform3D(15, 0, 0, 0, 10.6066, 10.6066, 0, -10.6066, 10.6066, 0, 0, 0)

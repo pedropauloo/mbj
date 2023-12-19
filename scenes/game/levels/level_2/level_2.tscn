@@ -1,17 +1,20 @@
-[gd_scene load_steps=22 format=3 uid="uid://q4kkxpp0q8si"]
+[gd_scene load_steps=25 format=3 uid="uid://q4kkxpp0q8si"]
 
 [ext_resource type="Script" path="res://scenes/game/levels/level_2/level_2.gd" id="1_qwrx2"]
 [ext_resource type="PackedScene" uid="uid://c3idsj77kmk8h" path="res://scenes/game/levels/auto_scroller/auto_scroller.tscn" id="1_xp5ss"]
 [ext_resource type="Texture2D" uid="uid://s7aru2ipivxj" path="res://assets/tilesets/city/-6.png" id="2_f0gd8"]
 [ext_resource type="Texture2D" uid="uid://carsi40s4p6eb" path="res://assets/tilesets/city/-5.png" id="3_0coid"]
+[ext_resource type="Shader" path="res://assets/shaders/auto_scroller_default.gdshader" id="3_8tec7"]
 [ext_resource type="Texture2D" uid="uid://xggv4e885c1e" path="res://assets/tilesets/city/-4.png" id="4_y51bt"]
 [ext_resource type="Texture2D" uid="uid://ccl8fcbgmfskt" path="res://assets/tilesets/city/-2.png" id="5_rrwku"]
 [ext_resource type="Texture2D" uid="uid://woxxjtgwygw4" path="res://assets/tilesets/city/-1.png" id="6_76y4j"]
 [ext_resource type="Texture2D" uid="uid://7gtm052cql8y" path="res://assets/tilesets/city/0.png" id="7_eh8mh"]
-[ext_resource type="Shader" path="res://assets/shaders/auto_scroller.gdshader" id="8_bygyl"]
 [ext_resource type="Texture2D" uid="uid://c0m6fasnnccqr" path="res://assets/tilesets/road_city.png" id="9_efele"]
+[ext_resource type="Shader" path="res://assets/shaders/auto_scroller_2.gdshader" id="9_vvmv4"]
+[ext_resource type="PackedScene" uid="uid://6janxgompwlu" path="res://scenes/game/actors/police/police.tscn" id="11_eqftv"]
 [ext_resource type="PackedScene" uid="uid://dh8kv8ss7haw0" path="res://scenes/game/actors/player/player.tscn" id="11_r5qrc"]
 [ext_resource type="PackedScene" uid="uid://bmrq3bklshgm4" path="res://scenes/menus/player_hud/player_hud.tscn" id="12_5pfy8"]
+[ext_resource type="Texture2D" uid="uid://bkyrma7661cs8" path="res://assets/tilesets/city_trees.png" id="12_aekrp"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_001ae"]
 
@@ -23,24 +26,28 @@ background_mode = 3
 sky = SubResource("Sky_nn3gx")
 tonemap_mode = 2
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2pd16"]
+shader = ExtResource("3_8tec7")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6da1d"]
+shader = ExtResource("9_vvmv4")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ui1d"]
+shader = ExtResource("9_vvmv4")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.3
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_y2h7p"]
 size = Vector3(200, 1, 10)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oislk"]
-shader = ExtResource("8_bygyl")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o5fli"]
+shader = ExtResource("9_vvmv4")
 shader_parameter/direction = Vector2(1, 0)
-shader_parameter/speed_scale = 0.02
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nn7hc"]
-
-[sub_resource type="Gradient" id="Gradient_454xx"]
-offsets = PackedFloat32Array(0, 0.686782)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_0o1ax"]
-gradient = SubResource("Gradient_454xx")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
+shader_parameter/speed_scale = 0.3
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jr3q7"]
 size = Vector3(200, 10, 0)
@@ -52,7 +59,8 @@ script = ExtResource("1_qwrx2")
 show_behind_parent = true
 offset_right = 1232.0
 offset_bottom = 760.0
-color = Color(0.996078, 0.631373, 0.6, 1)
+color = Color(0.552941, 0.552941, 0.552941, 1)
+metadata/_edit_lock_ = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4kbxx")
@@ -61,64 +69,66 @@ environment = SubResource("Environment_4kbxx")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 
 [node name="AutoScroller" parent="." instance=ExtResource("1_xp5ss")]
+material = SubResource("ShaderMaterial_2pd16")
 scale = Vector2(2, 0.9)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="BackFixedTuxture" parent="AutoScroller" index="0"]
 texture = ExtResource("2_f0gd8")
 
 [node name="TextureRectFarClouds" parent="AutoScroller" index="1"]
+material = null
 texture = ExtResource("3_0coid")
 
 [node name="TextureRectNearClouds" parent="AutoScroller" index="2"]
+material = null
 use_parent_material = false
 texture = ExtResource("4_y51bt")
 
 [node name="TextureRectFarMountains" parent="AutoScroller" index="3"]
+material = null
 texture = ExtResource("5_rrwku")
 
 [node name="TextureRectMountains" parent="AutoScroller" index="4"]
-use_parent_material = false
+material = null
 texture = ExtResource("6_76y4j")
 
 [node name="TextureRectTrees" parent="AutoScroller" index="5"]
+material = SubResource("ShaderMaterial_6da1d")
 use_parent_material = false
 texture = ExtResource("7_eh8mh")
 
-[node name="Ground" type="StaticBody3D" parent="AutoScroller"]
+[node name="Trees" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Trees"]
+material = SubResource("ShaderMaterial_8ui1d")
+offset_left = -2.0
+offset_top = 537.0
+offset_right = 798.0
+offset_bottom = 609.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("12_aekrp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Ground" type="StaticBody3D" parent="."]
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AutoScroller/Ground"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, 0)
 shape = SubResource("BoxShape3D_y2h7p")
 
-[node name="Road" type="Node2D" parent="AutoScroller/Ground"]
-material = SubResource("ShaderMaterial_oislk")
+[node name="Road" type="Node2D" parent="Ground"]
+material = SubResource("ShaderMaterial_o5fli")
 position = Vector2(0, 325)
 scale = Vector2(1.6, 2)
 
-[node name="TextureRect" type="TextureRect" parent="AutoScroller/Ground/Road"]
-material = SubResource("ShaderMaterial_nn7hc")
+[node name="TextureRect" type="TextureRect" parent="Ground/Road"]
 use_parent_material = true
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("9_efele")
-
-[node name="Lights" type="Node2D" parent="."]
-
-[node name="PoliceLight1" type="PointLight2D" parent="Lights"]
-position = Vector2(16, 384)
-scale = Vector2(5, 5)
-color = Color(1, 0, 0, 1)
-energy = 16.0
-texture = SubResource("GradientTexture2D_0o1ax")
-
-[node name="PoliceLight2" type="PointLight2D" parent="Lights"]
-position = Vector2(48, 568)
-scale = Vector2(5, 5)
-color = Color(0, 0, 1, 1)
-energy = 16.0
-texture = SubResource("GradientTexture2D_0o1ax")
 
 [node name="Walls" type="Node3D" parent="."]
 
@@ -139,6 +149,8 @@ metadata/_edit_lock_ = true
 [node name="Obstacles" type="Node3D" parent="."]
 
 [node name="Victims" type="Node3D" parent="."]
+
+[node name="police" parent="." instance=ExtResource("11_eqftv")]
 
 [node name="player" parent="." instance=ExtResource("11_r5qrc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15, 1, -1)

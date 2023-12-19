@@ -1,45 +1,58 @@
-[gd_scene load_steps=14 format=3 uid="uid://c3idsj77kmk8h"]
+[gd_scene load_steps=15 format=3 uid="uid://c3idsj77kmk8h"]
 
+[ext_resource type="Shader" path="res://assets/shaders/auto_scroller_default.gdshader" id="1_0xvhb"]
 [ext_resource type="Texture2D" uid="uid://chtqlvorj2hgg" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/sky.png" id="2_rpi74"]
-[ext_resource type="Shader" path="res://assets/shaders/auto_scroller.gdshader" id="2_s8vwb"]
 [ext_resource type="Texture2D" uid="uid://cky64yic8ajbg" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/far-clouds.png" id="3_irfv1"]
 [ext_resource type="Texture2D" uid="uid://vqcrxlpwvob4" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/near-clouds.png" id="4_8pgpc"]
 [ext_resource type="Texture2D" uid="uid://d22sbvv8jnryv" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/far-mountains.png" id="5_5ypxh"]
 [ext_resource type="Texture2D" uid="uid://ir2n5o1snup8" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/mountains.png" id="6_d0rd6"]
 [ext_resource type="Texture2D" uid="uid://c7x2fpip36uxh" path="res://assets/tilesets/MountainDuskGodot/MountainDuskGodot/MountainsLayers/trees.png" id="7_bft2p"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0rxlh"]
-shader = ExtResource("2_s8vwb")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_71brp"]
+shader = ExtResource("1_0xvhb")
 shader_parameter/direction = Vector2(1, 0)
-shader_parameter/speed_scale = 0.02
+shader_parameter/speed_scale = 0.2
+
+[sub_resource type="Shader" id="Shader_a3y8f"]
+code = "shader_type canvas_item;
+
+uniform vec2 direction = vec2(1.0, 0.0);
+uniform float speed_scale = 0.02;
+
+void fragment() {
+    vec2 move = direction * TIME * speed_scale;
+    vec2 uv = fract(UV + move);  // Use fract to keep UV coordinates in the range [0, 1]
+    COLOR = texture(TEXTURE, uv);
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jv7m2"]
-shader = ExtResource("2_s8vwb")
+shader = SubResource("Shader_a3y8f")
 shader_parameter/direction = Vector2(1, 0)
 shader_parameter/speed_scale = 0.02
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qattk"]
-shader = ExtResource("2_s8vwb")
+shader = SubResource("Shader_a3y8f")
 shader_parameter/direction = Vector2(1, 0)
 shader_parameter/speed_scale = 0.02
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_maog4"]
-shader = ExtResource("2_s8vwb")
+shader = SubResource("Shader_a3y8f")
 shader_parameter/direction = Vector2(1, 0)
 shader_parameter/speed_scale = 0.02
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cpwus"]
-shader = ExtResource("2_s8vwb")
+shader = SubResource("Shader_a3y8f")
 shader_parameter/direction = Vector2(1, 0)
 shader_parameter/speed_scale = 0.02
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vc8l8"]
-shader = ExtResource("2_s8vwb")
+shader = SubResource("Shader_a3y8f")
 shader_parameter/direction = Vector2(1, 0)
 shader_parameter/speed_scale = 0.02
 
 [node name="AutoScroller" type="Node2D"]
-material = SubResource("ShaderMaterial_0rxlh")
+material = SubResource("ShaderMaterial_71brp")
 
 [node name="BackFixedTuxture" type="TextureRect" parent="."]
 offset_right = 40.0

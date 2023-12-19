@@ -15,7 +15,6 @@ func connect_signals():
 	elif(current_level.id == 1):
 		current_level.play.connect(_on_play)
 		current_level.quit.connect(_on_quit)
-		
 	#Levels
 	elif(current_level.id == 10):
 		Obstacle.set_speed_factor(1)

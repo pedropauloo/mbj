@@ -28,23 +28,23 @@ func _process(delta):
 		var wall_inst = wall.instantiate()
 		wall_inst.position.x = 50 
 		wall_inst.position.y = 1 
-		wall_inst.position.z = randi_range(2,-5)
+		wall_inst.position.z = randi_range(1,-3)
 		$Obstacles.add_child(wall_inst)
 		wall_ready = false
 		
 	elif(hole_ready):
 		var hole_instance = hole.instantiate()
 		hole_instance.position.x = 50
-		hole_instance.position.y = 1 
-		hole_instance.position.z = randi_range(2,-5)
+		hole_instance.position.y = 0 
+		hole_instance.position.z = randi_range(1,-3)
 		$Obstacles.add_child(hole_instance)
 		hole_ready = false
 		
 	elif(oil_ready):
 		var oil_instance = oil.instantiate()
 		oil_instance.position.x = 50
-		oil_instance.position.y = 1 
-		oil_instance.position.z = randi_range(2,-5)
+		oil_instance.position.y = 0 
+		oil_instance.position.z = randi_range(1,-3)
 		$Obstacles.add_child(oil_instance)
 		oil_ready = false
 		
