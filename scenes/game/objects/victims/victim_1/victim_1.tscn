@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckes8qvpd2ik1"]
+[gd_scene load_steps=5 format=3 uid="uid://ckes8qvpd2ik1"]
 
 [ext_resource type="Script" path="res://scenes/game/objects/victims/victim_1/victim_1.gd" id="1_arhx8"]
 [ext_resource type="Texture2D" uid="uid://dnombxca8qyoe" path="res://assets/sprites/pessoas/Customer1FF.png" id="1_mjtnj"]
+[ext_resource type="AudioStream" uid="uid://6yn868qt6xfq" path="res://assets/audio/sfx/help/pega-ladrao.mp3" id="3_phlki"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dy6v"]
 
@@ -21,6 +22,9 @@ shape = SubResource("BoxShape3D_7dy6v")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="Robbery" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_phlki")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

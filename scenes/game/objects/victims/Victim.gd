@@ -6,6 +6,7 @@ var speed_variation := 0.25
 const MIN_FACTOR := 0.5 #50% of original speed
 const MAX_FACTOR := 1.0 #100% of original speed
 var status := 1
+signal robbed(money) 
 
 func _physics_process(delta):
 	var new_position = transform.origin
@@ -23,10 +24,17 @@ func _on_area_3d_body_entered(body):
 			#Poor
 			1:
 				body.hp += 5
+				emit_signal('robbed',5)
+				$Robbery.play()
 			#Regular
 			2:
 				body.hp += 10
+				emit_signal('robbed',10)
+				$Robbery.play()				
 			#Rich 
 			3:
 				body.hp += 25
+				emit_signal('robbed',25)
+				$Robbery.play()
+				
 

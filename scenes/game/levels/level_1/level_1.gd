@@ -54,6 +54,7 @@ func _process(delta):
 		v1_inst.position.y = 1 
 		v1_inst.position.z = -5
 		$Victims.add_child(v1_inst)
+		v1_inst.robbed.connect(_on_robbed)
 		v1_ready = false
 		
 	elif(v2_ready):
@@ -62,6 +63,7 @@ func _process(delta):
 		v2_inst.position.y = 1 
 		v2_inst.position.z = -5
 		$Victims.add_child(v2_inst)
+		v2_inst.robbed.connect(_on_robbed)
 		v2_ready = false
 		
 	elif(v3_ready):
@@ -70,6 +72,7 @@ func _process(delta):
 		v3_inst.position.y = 1 
 		v3_inst.position.z = -5
 		$Victims.add_child(v3_inst)
+		v3_inst.robbed.connect(_on_robbed)
 		v3_ready = false
 	
 	# Next Level:
@@ -93,8 +96,6 @@ func _on_timer_points_timeout():
 	score += 1
 	$player_hud.score = score
 
-
-
 func _on_timer_victims_timeout():
 	match randi_range(1,5):
 		1:
@@ -104,3 +105,5 @@ func _on_timer_victims_timeout():
 		3:
 			v3_ready = true
 
+func _on_robbed(money):
+	$money_anim.add_money(money)
