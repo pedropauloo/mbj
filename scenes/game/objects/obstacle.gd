@@ -13,7 +13,7 @@ func _physics_process(delta):
 	transform.origin = new_position
 
 func _process(delta):
-	if(position.x < -10):
+	if(position.x < 0):
 		queue_free()
 	match status:
 		#NORMAL

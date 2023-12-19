@@ -37,6 +37,9 @@ func _on_hit_box_body_entered(body):
 	if body is Player:
 		body.hp = 0
 
-
 func _on_timer_chase_timeout():
 	animation_status = 3
+
+func _on_hit_box_area_entered(area):
+	if area is Obstacle:
+		area.queue_free()

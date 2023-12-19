@@ -1,13 +1,13 @@
 extends Obstacle
-
-var is_entered = false
+var player : Player
 
 func _on_body_entered(body):
 	if (body is Player):
-		is_entered = true
-		body.animation.play("hurt")
+		player = body
+		player.oiled = true
 		speed_variation = -speed_variation
 		status = 2
+		$Oiled.play()
 		$Timer.start()
 		
 func _on_timer_timeout():

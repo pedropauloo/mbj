@@ -4,10 +4,10 @@ class_name Player extends CharacterBody3D
 
 @export var hp = 100
 @export var speed = 5.0
-@export var jump_force = 6
+@export var jump_force = 4
 @export var gravity = 9.8
 var can_jump = true
-
+var oiled = false
 
 func _physics_process(delta):
 	# Adicionar gravidade
@@ -21,6 +21,10 @@ func _physics_process(delta):
 	# RIGHT = +x, LEFT = -x, UP = -z, DOWN = +z
 	var input_dir =  Input.get_vector("ui_right","ui_left","ui_up","ui_down",)
 	var direction = (Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if oiled :
+		direction = -direction
+		if($EffectTimer.is_stopped()):
+			$EffectTimer.start()
 	if direction:
 		if(animation.current_animation != 'jump' && animation.current_animation != 'hurt'):
 			if direction.z > 0:
@@ -48,3 +52,7 @@ func jump():
 
 func _on_jump_cooldown_timeout():
 	can_jump = true
+
+
+func _on_effect_timer_timeout():
+	oiled = false

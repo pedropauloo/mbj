@@ -396,6 +396,7 @@ stream = ExtResource("3_un7px")
 volume_db = -10.0
 autoplay = true
 
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="timeout" from="TimerLights" to="." method="_on_timer_lights_timeout"]
 [connection signal="timeout" from="TimerChase" to="." method="_on_timer_chase_timeout"]
