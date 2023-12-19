@@ -2,7 +2,6 @@ extends Node3D
 @onready var animation := $AnimationPlayer
 var animation_status := 1
 func _process(delta):
-	print(animation_status)
 	match animation_status:
 		# Riding
 		1:

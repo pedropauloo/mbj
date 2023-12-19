@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/summer nights.ogg-0e271b9a2cab131eb299b21714a
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

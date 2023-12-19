@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://6janxgompwlu"]
+[gd_scene load_steps=13 format=3 uid="uid://6janxgompwlu"]
 
 [ext_resource type="Texture2D" uid="uid://dekns2g2msqtn" path="res://assets/sprites/carro de policia/police_car.png" id="1_r6wn4"]
 [ext_resource type="Script" path="res://scenes/game/actors/police/police.gd" id="1_ysceu"]
+[ext_resource type="AudioStream" uid="uid://chy8a4lubfumr" path="res://assets/audio/sfx/policie/police-operation-siren-144229.mp3" id="3_un7px"]
 
 [sub_resource type="Gradient" id="Gradient_4xjy3"]
 offsets = PackedFloat32Array(0, 0.686782)
@@ -389,6 +390,11 @@ autostart = true
 
 [node name="TimerChase" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_un7px")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="timeout" from="TimerLights" to="." method="_on_timer_lights_timeout"]
