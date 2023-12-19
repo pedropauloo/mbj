@@ -2,6 +2,7 @@ extends Node3D
 @onready var animation := $AnimationPlayer
 var animation_status := 1
 func _process(delta):
+	print(animation_status)
 	match animation_status:
 		# Riding
 		1:
@@ -22,6 +23,7 @@ func _process(delta):
 		3:
 			animation.clear_queue()
 			animation.play("retreating")
+			$TimerChase.stop()
 			animation_status = 1
 			
 func _on_timer_lights_timeout():
