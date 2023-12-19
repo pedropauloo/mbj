@@ -34,6 +34,7 @@ func connect_signals():
 
 func _on_play():
 	var level = load("res://scenes/game/levels/level_1/level_1.tscn")
+	Obstacle.set_speed_factor(1)
 	change_level(level)
 	
 func _on_back_menu():
@@ -57,13 +58,11 @@ func change_level(level):
 
 	
 func save_game():
-	print("saved")
 	var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	var json_string = JSON.stringify(current_level.save())
 	save_game.store_line(json_string)
 	
 func load_game():
-	print("loaded")
 	if not FileAccess.file_exists("user://savegame.save"):
 		return
 	

@@ -52,6 +52,15 @@ scale = Vector2(3.6, 2.88)
 [node name="TextureRectTrees" parent="AutoScroller" index="5"]
 visible = false
 
+[node name="player" parent="." instance=ExtResource("5_yo2an")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20, 1, -1)
+
+[node name="player_hud" parent="." instance=ExtResource("6_ml1qe")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, -3.93408e-08, 3.93408e-08, 0, 0.707107, 0.707107, -5.56363e-08, -0.707107, 0.707107, 25, 15, 6)
+current = true
+
 [node name="Ground" type="StaticBody3D" parent="."]
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
@@ -93,17 +102,7 @@ metadata/_edit_lock_ = true
 
 [node name="police" parent="." instance=ExtResource("7_wtk76")]
 
-[node name="player" parent="." instance=ExtResource("5_yo2an")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20, 1, -1)
-
-[node name="player_hud" parent="." instance=ExtResource("6_ml1qe")]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, -3.93408e-08, 3.93408e-08, 0, 0.707107, 0.707107, -5.56363e-08, -0.707107, 0.707107, 25, 15, 6)
-current = true
-
 [node name="TimerObstacles" type="Timer" parent="."]
-wait_time = 0.5
 autostart = true
 
 [node name="TimerPoints" type="Timer" parent="."]

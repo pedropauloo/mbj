@@ -12,6 +12,7 @@ func _process(delta):
 			if(position.x == 0):
 				animation.clear_queue()
 				animation.play("approach")
+				$TimerChase.start()
 				animation_status = 1
 			else:
 				animation.clear_queue()
@@ -19,7 +20,8 @@ func _process(delta):
 				animation_status = 1
 		# Retreating
 		3:
-			animation.queue("retreating")
+			animation.clear_queue()
+			animation.play("retreating")
 			animation_status = 1
 			
 func _on_timer_lights_timeout():
@@ -33,3 +35,7 @@ func _on_timer_lights_timeout():
 func _on_hit_box_body_entered(body):
 	if body is Player:
 		body.hp = 0
+
+
+func _on_timer_chase_timeout():
+	animation_status = 3

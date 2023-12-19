@@ -121,6 +121,7 @@ _data = {
 }
 
 [node name="player" type="CharacterBody3D"]
+top_level = true
 script = ExtResource("1_6e15m")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]

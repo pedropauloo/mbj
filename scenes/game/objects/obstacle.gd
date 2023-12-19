@@ -4,7 +4,7 @@ const SPEED: float = 10
 static var speed_factor: float = 1.0
 var speed_variation := 0.25
 const MIN_FACTOR := 0.5 #50% of original speed
-const MAX_FACTOR := 1 #100% of original speed
+const MAX_FACTOR := 1.0 #100% of original speed
 var status := 1
 
 func _physics_process(delta):
@@ -28,8 +28,8 @@ func _process(delta):
 		#SPEEDING
 		3:
 			if(speed_factor == MAX_FACTOR):
+				speed_factor = 1.0
 				$Timer.stop()
-				get_parent().get_parent().get_node("police").animation_status = 3
 				status = 1
 
 static func set_speed_factor(factor: float):
