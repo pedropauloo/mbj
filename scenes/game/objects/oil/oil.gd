@@ -10,6 +10,7 @@ func _ready():
 			$Sprite2D.modulate = Color(0.15,0.01,0.08,1)
 		30:
 			$Sprite2D.texture = water_hole
+			$Sprite2D.modulate = Color(1,1,1,1)
 			
 func _on_body_entered(body):
 	if (body is Player):

@@ -9,6 +9,7 @@ func _ready():
 			$Sprite2D.modulate = Color(0.44,0.41,0.42,1)
 		30:
 			$Sprite2D.texture = spikes
+			$Sprite2D.modulate = Color(1,1,1,1)
 
 func _on_body_entered(body):
 	if (body is Player):
