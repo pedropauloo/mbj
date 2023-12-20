@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://2nly7s8oyw1t" path="res://assets/fonts/Typodermic Fonts/almonte woodgrain.otf" id="3_1ep8j"]
 [ext_resource type="Texture2D" uid="uid://d3c7jtckmtkrb" path="res://assets/ui_presets/bar-under.png" id="4_wnoqe"]
 [ext_resource type="Texture2D" uid="uid://b3hb1bselhhs6" path="res://assets/ui_presets/bar_over.png" id="5_sgyyl"]
-[ext_resource type="Texture2D" uid="uid://7xnisans3vo1" path="res://assets/ui_presets/bar-fill.png" id="6_ha2nu"]
+[ext_resource type="Texture2D" uid="uid://dgntah74fp42e" path="res://assets/ui_presets/bar-progress.png" id="6_ha2nu"]
 
 [node name="player_hud" type="Control"]
 layout_mode = 3

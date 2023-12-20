@@ -6,6 +6,7 @@ signal change_level(next_level)
 
 func _process(delta):
 	$player_hud.hp = $player.hp
+	$player_hud.score = score
 	if($player.hp <= 0):
 		emit_signal('game_over')
 func save():

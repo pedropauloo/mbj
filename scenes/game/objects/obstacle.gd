@@ -35,7 +35,8 @@ func _process(delta):
 		#SLOWING
 		2:
 			if(speed_factor == MIN_FACTOR ):
-				speed_variation = -speed_variation
+				if(speed_variation < 0):
+					speed_variation = -speed_variation
 				status = 3
 		#SPEEDING
 		3:

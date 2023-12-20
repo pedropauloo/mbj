@@ -11,7 +11,8 @@ func _ready():
 			$Ramp.visible = false
 			$Ramp2.visible = true
 		30:
-			pass
+			$Ramp.visible = false
+			$Ramp2.visible = true
 
 func _on_body_entered(body):
 	if (body is Player):

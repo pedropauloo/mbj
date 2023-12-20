@@ -1,7 +1,6 @@
 extends Node
 
 @onready var current_level := $main_menu
-var has_died = false
 
 func _ready():
 	connect_signals()
@@ -42,7 +41,6 @@ func connect_signals():
 func _on_play():
 	var level = load("res://scenes/game/levels/level_1/level_1.tscn")
 	Obstacle.set_speed_factor(1)
-	var has_died = false
 	change_level(level)
 	
 func _on_back_menu():
@@ -52,7 +50,6 @@ func _on_back_menu():
 func _on_game_over():
 	save_game()
 	var level = load("res://scenes/menus/game_over/game_over.tscn")
-	has_died = true
 	change_level(level)
 	
 func _on_quit():
@@ -81,7 +78,7 @@ func next_save(file):
 	return file_name
 
 func get_most_recent_save():
-	var file_name := '1_savegame.save' 
+	var file_name := '5_savegame.save' 
 	var file_time := 0
 	var dir = DirAccess.open("res://assets/saves/")
 	dir.list_dir_begin()
@@ -99,7 +96,7 @@ func get_most_recent_save():
 	
 func save_game():
 	var file : String
-	if(has_died):
+	if(current_level.id == 10):
 		file = next_save(get_most_recent_save())
 	else:
 		file = get_most_recent_save()

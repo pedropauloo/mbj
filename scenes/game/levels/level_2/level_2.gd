@@ -127,7 +127,6 @@ func _on_timer_obstacles_timeout():
 
 func _on_timer_points_timeout():
 	score += 2
-	$player_hud.score = score
 
 
 
