@@ -15,10 +15,10 @@ script = ExtResource("1_1yny6")
 
 [node name="Score" type="Label" parent="."]
 layout_mode = 2
-offset_left = 384.0
-offset_top = 45.0
-offset_right = 461.0
-offset_bottom = 117.0
+offset_left = 394.0
+offset_top = 18.0
+offset_right = 471.0
+offset_bottom = 90.0
 theme_override_colors/font_color = Color(1, 0.509804, 0, 1)
 theme_override_constants/shadow_offset_x = -2
 theme_override_constants/shadow_offset_y = 2
@@ -29,12 +29,11 @@ text = "0m"
 
 [node name="VBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 45.0
-offset_right = 374.0
-offset_bottom = 109.0
-metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
+offset_left = 30.0
+offset_top = 18.0
+offset_right = 384.0
+offset_bottom = 82.0
+metadata/_edit_group_ = true
 
 [node name="HpLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -44,7 +43,6 @@ theme_override_constants/shadow_outline_size = 20
 theme_override_font_sizes/font_size = 43
 text = "R$:"
 uppercase = true
-metadata/_edit_lock_ = true
 
 [node name="HpBar" type="TextureProgressBar" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)

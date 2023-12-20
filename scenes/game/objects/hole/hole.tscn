@@ -11,7 +11,7 @@ script = ExtResource("1_bfkx6")
 
 [node name="Sprite2D" type="Sprite3D" parent="."]
 transform = Transform3D(-9, 4.37114e-07, -1.91069e-14, 0, -2.18557e-07, -5, -7.86805e-07, -5, 2.18557e-07, 0, 0, 0)
-modulate = Color(1, 0.8, 0.0509804, 0.780392)
+modulate = Color(0.454902, 0.34902, 0.113725, 1)
 texture_filter = 0
 texture = ExtResource("2_13wnp")
 region_enabled = true
@@ -23,6 +23,9 @@ shape = SubResource("BoxShape3D_6wkxh")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -10,8 +10,7 @@ func _process(delta):
 		emit_signal('game_over')
 func save():
 	var save_dict = {
-		"username" : "TST",		
+		"username" : "TST",
 		"score" : score
-		#"hp" : 100
 	}
 	return save_dict

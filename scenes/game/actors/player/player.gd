@@ -1,10 +1,11 @@
 class_name Player extends CharacterBody3D
 
 @onready var animation = $AnimationPlayer
+@onready var hurt = $Hurt
 
 @export var hp = 100
 @export var speed = 5.0
-@export var jump_force = 4
+@export var jump_force = 5
 @export var gravity = 9.8
 var can_jump = true
 var oiled = false
