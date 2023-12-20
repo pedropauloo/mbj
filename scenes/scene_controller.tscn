@@ -7,8 +7,10 @@
 [node name="scene_controller" type="Node"]
 script = ExtResource("1_dxewk")
 
-[node name="GlobalAudio" type="AudioStreamPlayer" parent="."]
+[node name="Track_1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_560cw")
+volume_db = -10.0
 autoplay = true
+bus = &"Music"
 
 [node name="main_menu" parent="." instance=ExtResource("2_u86by")]

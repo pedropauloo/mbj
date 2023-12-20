@@ -113,6 +113,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 384.0
 offset_top = 536.0
 offset_right = 768.0
