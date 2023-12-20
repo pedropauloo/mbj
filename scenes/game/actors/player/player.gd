@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody3D
 
 @onready var animation = $AnimationPlayer
+@onready var hurt = $Hurt
 
 @export var hp = 100
 @export var speed = 5.0

@@ -4,9 +4,9 @@ var player : Player
 func _ready():
 	match get_parent().get_parent().id:
 		10:
-			$Sprite2D.modulate = Color(0.77,0.36,0,1)
+			$Sprite2D.modulate = Color(0.28,0.11,0.1,1)
 		20:
-			$Sprite2D.modulate = Color(1,1,1,1)
+			$Sprite2D.modulate = Color(0.15,0.01,0.08,1)
 		30:
 			pass
 			

@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dh8kv8ss7haw0"]
+[gd_scene load_steps=12 format=3 uid="uid://dh8kv8ss7haw0"]
 
 [ext_resource type="Script" path="res://scenes/game/actors/player/player.gd" id="1_6e15m"]
 [ext_resource type="Texture2D" uid="uid://b3oji7kil6ikw" path="res://assets/sprites/dois caras uma moto/dois caras uma moto.png" id="2_2ql6i"]
+[ext_resource type="AudioStream" uid="uid://bd8i5dqor8yx0" path="res://assets/audio/sfx/hurt/hitHurt.wav" id="3_xh438"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u4pkw"]
 size = Vector3(1.2, 1, 1.2)
@@ -179,6 +180,9 @@ autostart = true
 [node name="EffectTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="Hurt" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_xh438")
 
 [connection signal="timeout" from="JumpCooldown" to="." method="_on_jump_cooldown_timeout"]
 [connection signal="timeout" from="EffectTimer" to="." method="_on_effect_timer_timeout"]

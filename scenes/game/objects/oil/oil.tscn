@@ -12,6 +12,7 @@ script = ExtResource("3_qnl1k")
 
 [node name="Sprite2D" type="Sprite3D" parent="."]
 transform = Transform3D(6, 0, -1.14641e-14, -2.29282e-14, 1.31134e-07, -3, 0, 3, 1.31134e-07, 0, 0, 0)
+modulate = Color(0.14902, 0.00784314, 0.0823529, 1)
 texture_filter = 0
 texture = ExtResource("2_ab48x")
 
