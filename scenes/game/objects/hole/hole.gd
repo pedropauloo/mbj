@@ -1,4 +1,5 @@
 extends Obstacle
+var spikes = preload("res://assets/sprites/obstacles/spike.png")
 
 func _ready():
 	match get_parent().get_parent().id:
@@ -7,7 +8,7 @@ func _ready():
 		20:
 			$Sprite2D.modulate = Color(1,1,1,1)
 		30:
-			pass
+			$Sprite2D.texture = spikes
 
 func _on_body_entered(body):
 	if (body is Player):

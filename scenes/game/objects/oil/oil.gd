@@ -1,5 +1,6 @@
 extends Obstacle
 var player : Player
+var water_hole = preload("res://assets/sprites/obstacles/water hole.png")
 
 func _ready():
 	match get_parent().get_parent().id:
@@ -8,7 +9,7 @@ func _ready():
 		20:
 			$Sprite2D.modulate = Color(1,1,1,1)
 		30:
-			pass
+			$Sprite2D.texture = water_hole
 			
 func _on_body_entered(body):
 	if (body is Player):

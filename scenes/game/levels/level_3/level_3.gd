@@ -1,5 +1,5 @@
 extends Level 
-@onready var id = 20
+@onready var id = 30
 @onready var wall = preload("res://scenes/game/objects/wall/wall.tscn")
 @onready var hole = preload("res://scenes/game/objects/hole/hole.tscn")
 @onready var oil = preload("res://scenes/game/objects/oil/oil.tscn")
@@ -14,7 +14,7 @@ var v1_ready = false
 var v2_ready = false
 var v3_ready = false
 
-#var next_level = preload("res://scenes/game/levels/level_3/level_3.tscn")
+#var next_level = preload("res://scenes/game/levels/level_4/level_4.tscn")
 
 func _ready():
 	for i in $Obstacles.get_children():
@@ -74,7 +74,7 @@ func _process(delta):
 		v3_ready = false
 	
 	# Next Level:
-	#if(score>100):
+	#if(score>200):
 	#	get_parent().save_game()
 	#	emit_signal("change_level",next_level)
 	
@@ -89,10 +89,8 @@ func _on_timer_obstacles_timeout():
 				oil_ready = true
 
 func _on_timer_points_timeout():
-	score += 2
+	score += 3
 	$player_hud.score = score
-
-
 
 func _on_timer_victims_timeout():
 	match randi_range(1,5):

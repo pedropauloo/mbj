@@ -14,7 +14,7 @@ var v1_ready = false
 var v2_ready = false
 var v3_ready = false
 
-#var next_level = preload("res://scenes/game/levels/level_3/level_3.tscn")
+var next_level = preload("res://scenes/game/levels/level_3/level_3.tscn")
 
 func _ready():
 	for i in $Obstacles.get_children():
@@ -77,9 +77,9 @@ func _process(delta):
 		v3_ready = false
 	
 	# Next Level:
-	#if(score>100):
-	#	get_parent().save_game()
-	#	emit_signal("change_level",next_level)
+	if(score > 10):
+		get_parent().save_game()
+		emit_signal("change_level",next_level)
 	
 func _on_timer_obstacles_timeout():
 	if($Obstacles.get_children().size() <= 15):

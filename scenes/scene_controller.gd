@@ -24,7 +24,11 @@ func connect_signals():
 		current_level.score = load_game().score
 		Obstacle.set_speed_factor(2)
 		current_level.game_over.connect(_on_game_over)
-		#current_level.change_level.connect(change_level)
+		current_level.change_level.connect(change_level)
+	elif(current_level.id == 30):
+		current_level.score = load_game().score
+		Obstacle.set_speed_factor(3)
+		current_level.game_over.connect(_on_game_over)
 	else:
 		current_level.score = load_game().score
 		Obstacle.set_speed_factor(3)

@@ -1,7 +1,7 @@
 extends Obstacle
 var rock = preload("res://assets/sprites/obstacles/rock.png")
 var car = preload("res://assets/sprites/obstacles/car on firing.png")
-#var smt = preload()
+var barrer = preload("res://assets/sprites/obstacles/barrer.png")
 
 func _ready():
 	match get_parent().get_parent().id:
@@ -12,7 +12,8 @@ func _ready():
 			$Sprite2D.texture = car
 			$Sprite2D.scale = Vector3(1,1,1)
 		30:
-			pass
+			$Sprite2D.texture = barrer
+			$Sprite2D.scale = Vector3(1,1,1)
 	
 
 func _on_body_entered(body):

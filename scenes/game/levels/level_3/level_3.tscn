@@ -1,17 +1,23 @@
-[gd_scene load_steps=20 format=3 uid="uid://bhimu7x0d517v"]
+[gd_scene load_steps=24 format=3 uid="uid://bhimu7x0d517v"]
 
 [ext_resource type="Script" path="res://scenes/game/levels/level_2/level_2.gd" id="1_vqkjg"]
 [ext_resource type="PackedScene" uid="uid://c3idsj77kmk8h" path="res://scenes/game/levels/auto_scroller/auto_scroller.tscn" id="2_yr8kx"]
-[ext_resource type="Texture2D" uid="uid://s7aru2ipivxj" path="res://assets/tilesets/city/-6.png" id="3_ldmq6"]
+[ext_resource type="Texture2D" uid="uid://c0ty8ce0nfctq" path="res://assets/tilesets/Slum street/Sky.png" id="3_ltqpn"]
 [ext_resource type="Texture2D" uid="uid://carsi40s4p6eb" path="res://assets/tilesets/city/-5.png" id="4_7yhvm"]
 [ext_resource type="Texture2D" uid="uid://xggv4e885c1e" path="res://assets/tilesets/city/-4.png" id="5_ucrr3"]
-[ext_resource type="Texture2D" uid="uid://ccl8fcbgmfskt" path="res://assets/tilesets/city/-2.png" id="6_3qii3"]
-[ext_resource type="Texture2D" uid="uid://woxxjtgwygw4" path="res://assets/tilesets/city/-1.png" id="7_dg512"]
-[ext_resource type="Texture2D" uid="uid://7gtm052cql8y" path="res://assets/tilesets/city/0.png" id="8_mex4b"]
-[ext_resource type="Shader" path="res://assets/shaders/auto_scroller.gdshader" id="9_n2dho"]
-[ext_resource type="Texture2D" uid="uid://c0m6fasnnccqr" path="res://assets/tilesets/road_city.png" id="10_v3a7h"]
+[ext_resource type="Texture2D" uid="uid://dy8h8uerk2r23" path="res://assets/tilesets/Slum street/buildings.png" id="6_db44w"]
+[ext_resource type="Texture2D" uid="uid://br8db3mc4cd21" path="res://assets/tilesets/Slum street/wall2.png" id="7_j6m7a"]
+[ext_resource type="Texture2D" uid="uid://d0kgkllpsf8ry" path="res://assets/tilesets/Slum street/wall1.png" id="8_ra068"]
+[ext_resource type="Shader" path="res://assets/shaders/auto_scroller_3.gdshader" id="9_n2dho"]
+[ext_resource type="Texture2D" uid="uid://b0dvgx81jlhnq" path="res://assets/tilesets/Slum street/road&border.png" id="10_315iy"]
+[ext_resource type="Texture2D" uid="uid://cmhbccniy2ip1" path="res://assets/tilesets/Slum street/wheels&hydrant.png" id="11_74fgu"]
 [ext_resource type="PackedScene" uid="uid://dh8kv8ss7haw0" path="res://scenes/game/actors/player/player.tscn" id="11_fvllv"]
+[ext_resource type="Texture2D" uid="uid://bor227lcidv7h" path="res://assets/tilesets/Slum street/boxes&container.png" id="11_ry6lh"]
 [ext_resource type="PackedScene" uid="uid://bmrq3bklshgm4" path="res://scenes/menus/player_hud/player_hud.tscn" id="12_hfq5d"]
+[ext_resource type="PackedScene" uid="uid://6janxgompwlu" path="res://scenes/game/actors/police/police.tscn" id="13_3n06v"]
+[ext_resource type="PackedScene" uid="uid://1hd0uhedrhme" path="res://scenes/menus/money_anim/money_anim.tscn" id="13_iinh8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nn7hc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y2h7p"]
 size = Vector3(200, 1, 10)
@@ -20,8 +26,6 @@ size = Vector3(200, 1, 10)
 shader = ExtResource("9_n2dho")
 shader_parameter/direction = Vector2(1, 0)
 shader_parameter/speed_scale = 0.02
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nn7hc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_001ae"]
 
@@ -49,25 +53,62 @@ color = Color(0.996078, 0.631373, 0.6, 1)
 scale = Vector2(2, 0.9)
 
 [node name="BackFixedTuxture" parent="AutoScroller" index="0"]
-texture = ExtResource("3_ldmq6")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ltqpn")
 
 [node name="TextureRectFarClouds" parent="AutoScroller" index="1"]
+visible = false
 texture = ExtResource("4_7yhvm")
 
 [node name="TextureRectNearClouds" parent="AutoScroller" index="2"]
+visible = false
 use_parent_material = false
 texture = ExtResource("5_ucrr3")
 
 [node name="TextureRectFarMountains" parent="AutoScroller" index="3"]
-texture = ExtResource("6_3qii3")
+offset_top = 54.0
+offset_right = 2575.0
+offset_bottom = 1134.0
+scale = Vector2(0.24, 0.3)
+texture = ExtResource("6_db44w")
 
 [node name="TextureRectMountains" parent="AutoScroller" index="4"]
 use_parent_material = false
-texture = ExtResource("7_dg512")
+offset_top = 79.6667
+offset_right = 3850.0
+offset_bottom = 1159.67
+scale = Vector2(0.16, 0.3)
+texture = ExtResource("7_j6m7a")
 
 [node name="TextureRectTrees" parent="AutoScroller" index="5"]
 use_parent_material = false
-texture = ExtResource("8_mex4b")
+offset_top = 122.667
+offset_right = 3088.0
+offset_bottom = 1202.67
+scale = Vector2(0.2, 0.4)
+texture = ExtResource("8_ra068")
+
+[node name="Boxes and Trash" type="TextureRect" parent="AutoScroller"]
+material = SubResource("ShaderMaterial_nn7hc")
+use_parent_material = true
+offset_left = 1.0
+offset_top = 322.0
+offset_right = 11501.0
+offset_bottom = 1402.0
+scale = Vector2(0.05, 0.1)
+texture = ExtResource("11_ry6lh")
+stretch_mode = 1
+
+[node name="Hydrates and Wheels" type="TextureRect" parent="AutoScroller"]
+material = SubResource("ShaderMaterial_nn7hc")
+use_parent_material = true
+offset_left = -1.0
+offset_top = 325.556
+offset_right = 11589.0
+offset_bottom = 1405.56
+scale = Vector2(0.05, 0.1)
+texture = ExtResource("11_74fgu")
+stretch_mode = 1
 
 [node name="Ground" type="StaticBody3D" parent="AutoScroller"]
 metadata/_edit_group_ = true
@@ -82,12 +123,15 @@ material = SubResource("ShaderMaterial_oislk")
 position = Vector2(0, 325)
 scale = Vector2(1.6, 2)
 
-[node name="TextureRect" type="TextureRect" parent="AutoScroller/Ground/Road"]
+[node name="TextureRect3" type="TextureRect" parent="AutoScroller/Ground/Road"]
 material = SubResource("ShaderMaterial_nn7hc")
 use_parent_material = true
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("10_v3a7h")
+offset_top = -107.5
+offset_right = 3003.0
+offset_bottom = 972.5
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_315iy")
+stretch_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4kbxx")
@@ -111,18 +155,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 shape = SubResource("BoxShape3D_jr3q7")
 metadata/_edit_lock_ = true
 
-[node name="Obstacles" type="Node3D" parent="."]
-
-[node name="Victims" type="Node3D" parent="."]
-
 [node name="player" parent="." instance=ExtResource("11_fvllv")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15, 1, -1)
 
 [node name="player_hud" parent="." instance=ExtResource("12_hfq5d")]
 
+[node name="money_anim" parent="." instance=ExtResource("13_iinh8")]
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, -3.93408e-08, 3.93408e-08, 0, 0.707107, 0.707107, -5.56363e-08, -0.707107, 0.707107, 21, 15, 6)
 current = true
+
+[node name="Obstacles" type="Node3D" parent="."]
+
+[node name="Victims" type="Node3D" parent="."]
+
+[node name="police" parent="." instance=ExtResource("13_3n06v")]
 
 [node name="TimerObstacles" type="Timer" parent="."]
 wait_time = 0.5

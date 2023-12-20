@@ -76,7 +76,7 @@ func _process(delta):
 		v3_ready = false
 	
 	# Next Level:
-	if(score>50):
+	if(score>5):
 		get_parent().save_game()
 		emit_signal("change_level",next_level)
 	
