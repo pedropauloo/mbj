@@ -98,7 +98,7 @@ func _process(delta):
 	
 func _on_timer_obstacles_timeout():
 	if($Obstacles.get_children().size() <= 15):
-		match randi_range(1,4):
+		match randi_range(1,10):
 			1:
 				wall_ready = true
 			2:
@@ -106,6 +106,12 @@ func _on_timer_obstacles_timeout():
 			3:
 				oil_ready = true
 			4:
+				wall_ready = true
+			5:
+				hole_ready = true
+			6:
+				oil_ready = true
+			7:
 				ramp_ready = true
 
 func _on_timer_points_timeout():

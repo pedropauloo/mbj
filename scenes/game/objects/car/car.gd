@@ -8,16 +8,16 @@ func _ready():
 	match randi_range(1,4):
 		1:
 			$Sprite3D.texture = car_1
-			extras = 0.2
+			extras = 0.1
 		2:
 			$Sprite3D.texture = car_2
-			extras = 0.3
+			extras = 0.2
 		3:
 			$Sprite3D.texture = car_3
-			extras = 0.1
+			extras = 0.05
 		4:
 			$Sprite3D.texture = car_4
-			extras = 0.4
+			extras = 0.3
 
 
 func _on_body_entered(body):

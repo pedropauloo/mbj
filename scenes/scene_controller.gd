@@ -1,6 +1,7 @@
 extends Node
 
 @onready var current_level := $main_menu
+var has_died = false
 
 func _ready():
 	connect_signals()
@@ -29,18 +30,19 @@ func connect_signals():
 			current_level.change_level.connect(change_level)
 		20:
 			current_level.score = load_game().score
-			Obstacle.set_speed_factor(2)
+			Obstacle.set_speed_factor(1.5)
 			current_level.game_over.connect(_on_game_over)
 			#current_level.change_level.connect(change_level)
 		30:
 			current_level.score = load_game().score
-			Obstacle.set_speed_factor(3)
+			Obstacle.set_speed_factor(2)
 			current_level.game_over.connect(_on_game_over)
 		
 
 func _on_play():
 	var level = load("res://scenes/game/levels/level_1/level_1.tscn")
 	Obstacle.set_speed_factor(1)
+	var has_died = false
 	change_level(level)
 	
 func _on_back_menu():
@@ -50,6 +52,7 @@ func _on_back_menu():
 func _on_game_over():
 	save_game()
 	var level = load("res://scenes/menus/game_over/game_over.tscn")
+	var has_died = true
 	change_level(level)
 	
 func _on_quit():
@@ -95,7 +98,11 @@ func get_most_recent_save():
 	return file_name	
 	
 func save_game():
-	var file = next_save(get_most_recent_save())
+	var file : String
+	if(has_died):
+		file = next_save(get_most_recent_save())
+	else:
+		file = get_most_recent_save()
 	var save_game = FileAccess.open("res://assets/saves/"+ file, FileAccess.WRITE)
 	var json_string = JSON.stringify(current_level.save())
 	save_game.store_line(json_string)
