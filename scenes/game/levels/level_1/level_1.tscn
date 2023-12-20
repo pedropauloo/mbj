@@ -124,7 +124,7 @@ metadata/_edit_lock_ = true
 
 [node name="Victims" type="Node3D" parent="."]
 
-[node name="police" parent="." instance=ExtResource("7_wtk76")]
+[node name="Police" parent="." instance=ExtResource("7_wtk76")]
 
 [node name="TimerObstacles" type="Timer" parent="."]
 autostart = true
@@ -136,8 +136,13 @@ autostart = true
 wait_time = 3.0
 autostart = true
 
+[node name="TimerPolice" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="TimerObstacles" to="." method="_on_timer_obstacles_timeout"]
 [connection signal="timeout" from="TimerPoints" to="." method="_on_timer_points_timeout"]
 [connection signal="timeout" from="TimerVictims" to="." method="_on_timer_victims_timeout"]
+[connection signal="timeout" from="TimerPolice" to="." method="_on_timer_police_timeout"]
 
 [editable path="AutoScroller"]

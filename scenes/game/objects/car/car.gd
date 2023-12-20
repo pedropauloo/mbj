@@ -5,6 +5,7 @@ extends Obstacle
 @onready var car_4 = preload("res://assets/sprites/obstacles/carros/spr_vintage_0.png")
 
 func _ready():
+	super._ready()
 	match randi_range(1,4):
 		1:
 			$Sprite3D.texture = car_1
@@ -25,9 +26,8 @@ func _on_body_entered(body):
 		body.hp -= 30
 		body.hurt.play()
 		body.animation.play("hurt")
-		speed_variation = -speed_variation
+		if(speed_variation > 0):
+			speed_variation = -speed_variation
 		status = 2
-		$Timer.start()
-func _on_timer_timeout():
-	set_speed_factor(speed_factor + speed_variation)
+		get_parent().get_parent().get_node('TimerPolice').start()
 

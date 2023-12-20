@@ -14,7 +14,6 @@ func _physics_process(delta):
 	transform.origin = new_position
 
 func _process(delta):
-	Obstacle.speed_factor
 	if(position.x < -10):
 		queue_free()
 		

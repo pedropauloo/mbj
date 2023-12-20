@@ -18,7 +18,4 @@ texture = ExtResource("2_ep0u8")
 transform = Transform3D(0.999999, -0.00124981, 0.000778607, 0.00125034, 0.999999, -0.000682435, -0.000777757, 0.000683403, 0.999999, 0, 1.56126, 0)
 shape = SubResource("BoxShape3D_6wkxh")
 
-[node name="Timer" type="Timer" parent="."]
-
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -2,12 +2,24 @@ class_name Obstacle extends Area3D
 
 const SPEED: float = 10
 static var speed_factor: float = 1.0
-var speed_variation := 0.25
-const MIN_FACTOR := 0.5 #50% of original speed
-const MAX_FACTOR := 1.0 #100% of original speed
-var status := 1
+static var speed_variation := 0.25
+static var MIN_FACTOR : float #50% of original speed
+static var MAX_FACTOR : float #100% of original speed
+static var status := 1
 var extras : float = 0 # Any extra bonuses from quirky obstacles
 
+func _ready():
+	match get_parent().get_parent().id:
+		10:
+			MIN_FACTOR = 0.5
+			MAX_FACTOR = 1.0
+		20:
+			MIN_FACTOR = 0.75
+			MAX_FACTOR = 1.5
+		30:
+			MIN_FACTOR = 1
+			MAX_FACTOR = 2
+			
 func _physics_process(delta):
 	var new_position = transform.origin
 	new_position.x -= (SPEED * speed_factor * delta) + extras
@@ -22,15 +34,14 @@ func _process(delta):
 			pass
 		#SLOWING
 		2:
-			if(speed_factor == MIN_FACTOR):
+			if(speed_factor == MIN_FACTOR ):
 				speed_variation = -speed_variation
-				get_parent().get_parent().get_node("police").animation_status = 2
 				status = 3
 		#SPEEDING
 		3:
 			if(speed_factor == MAX_FACTOR):
-				speed_factor = 1.0
-				$Timer.stop()
+				_ready()
+				get_parent().get_parent().get_node('TimerPolice').stop()
 				status = 1
 
 static func set_speed_factor(factor: float):

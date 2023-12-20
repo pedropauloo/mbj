@@ -2,6 +2,7 @@ extends Obstacle
 
 
 func _ready():
+	super._ready()
 	match get_parent().get_parent().id:
 		10:
 			$Ramp.visible = true
@@ -18,9 +19,4 @@ func _on_body_entered(body):
 		await body.jump()
 		body.jump_force = body.jump_force/2
 		status = 2
-		$Timer.start()
-
-
-func _on_timer_timeout():
-	set_speed_factor(speed_factor + speed_variation)
 		

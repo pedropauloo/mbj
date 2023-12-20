@@ -142,3 +142,6 @@ func _on_timer_victims_timeout():
 
 func _on_robbed(money):
 	$money_anim.add_money(money)
+
+func _on_timer_police_timeout():
+	Obstacle.set_speed_factor(Obstacle.speed_factor + Obstacle.speed_variation)
