@@ -12,8 +12,8 @@ func _ready():
 			$Sprite3D.texture = car
 			$Sprite3D.scale = Vector3(1,1,1)
 		30:
-			$Sprite2D.texture = barrer
-			$Sprite2D.scale = Vector3(1,1,1)
+			$Sprite3D.texture = barrer
+			$Sprite3D.scale = Vector3(1,1,1)
 	
 
 func _on_body_entered(body):
