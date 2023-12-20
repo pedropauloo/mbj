@@ -9,7 +9,6 @@ script = ExtResource("1_dxewk")
 
 [node name="Track_1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_560cw")
-volume_db = -10.0
 autoplay = true
 bus = &"Music"
 

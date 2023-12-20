@@ -52,7 +52,7 @@ func _on_back_menu():
 func _on_game_over():
 	save_game()
 	var level = load("res://scenes/menus/game_over/game_over.tscn")
-	var has_died = true
+	has_died = true
 	change_level(level)
 	
 func _on_quit():
@@ -81,7 +81,7 @@ func next_save(file):
 	return file_name
 
 func get_most_recent_save():
-	var file_name := '5_savegame.save' 
+	var file_name := '1_savegame.save' 
 	var file_time := 0
 	var dir = DirAccess.open("res://assets/saves/")
 	dir.list_dir_begin()
@@ -95,7 +95,7 @@ func get_most_recent_save():
 				file_name = file
 				file_time = new_time
 	dir.list_dir_end()
-	return file_name	
+	return file_name
 	
 func save_game():
 	var file : String
