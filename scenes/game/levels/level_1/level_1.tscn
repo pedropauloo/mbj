@@ -102,6 +102,7 @@ scale = Vector2(2, 2)
 use_parent_material = true
 offset_right = 750.0
 offset_bottom = 256.0
+scale = Vector2(1.00132, 1)
 texture = ExtResource("3_0ac47")
 
 [node name="Walls" type="Node3D" parent="."]

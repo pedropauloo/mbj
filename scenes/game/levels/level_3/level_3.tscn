@@ -56,6 +56,7 @@ environment = SubResource("Environment_4kbxx")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 
 [node name="AutoScroller" parent="." instance=ExtResource("2_yr8kx")]
+position = Vector2(-1, -29)
 scale = Vector2(2, 0.9)
 
 [node name="BackFixedTuxture" parent="AutoScroller" index="0"]
@@ -137,7 +138,7 @@ shape = SubResource("BoxShape3D_y2h7p")
 
 [node name="Road" type="Node2D" parent="Ground"]
 material = SubResource("ShaderMaterial_onldt")
-position = Vector2(0, 325)
+position = Vector2(-1, 296)
 scale = Vector2(1.6, 2)
 
 [node name="TextureRect3" type="TextureRect" parent="Ground/Road"]
@@ -153,14 +154,14 @@ stretch_mode = 1
 [node name="Walls" type="Node3D" parent="."]
 
 [node name="WallRight" type="StaticBody3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.75)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallRight"]
 shape = SubResource("BoxShape3D_jr3q7")
 metadata/_edit_lock_ = true
 
 [node name="WallLeft" type="StaticBody3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.25)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallLeft"]
 shape = SubResource("BoxShape3D_jr3q7")

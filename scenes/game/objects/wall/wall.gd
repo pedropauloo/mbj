@@ -1,7 +1,7 @@
 extends Obstacle
 @onready var rock = preload("res://assets/sprites/obstacles/rock.png")
 @onready var car = preload("res://assets/sprites/obstacles/car on firing.png")
-@onready var barrer = preload("res://assets/sprites/obstacles/barrer.png")
+@onready var broken = preload("res://assets/sprites/obstacles/broken car.png")
 
 func _ready():
 	super._ready()
@@ -13,8 +13,8 @@ func _ready():
 			$Sprite3D.texture = car
 			$Sprite3D.scale = Vector3(1,1,1)
 		30:
-			$Sprite3D.texture = barrer
-			$Sprite3D.scale = Vector3(1,1,1)
+			$Sprite3D.texture = broken
+			$Sprite3D.scale = Vector3(4,4,4)
 	
 
 func _on_body_entered(body):
