@@ -92,7 +92,7 @@ func get_most_recent_save():
 				file_name = file
 				file_time = new_time
 	dir.list_dir_end()
-	return file_name
+	return file_name	
 	
 func save_game():
 	var file = next_save(get_most_recent_save())
@@ -101,10 +101,6 @@ func save_game():
 	save_game.store_line(json_string)
 	
 func load_game():
-	for n in range(1,5):
-		if not FileAccess.file_exists("res://assets/saves/"+str(n)+"_savegame.save"):
-			return
-	
 	var save_game = FileAccess.open("res://assets/saves/" +get_most_recent_save(), FileAccess.READ)
 	
 	while save_game.get_position() < save_game.get_length():
@@ -128,14 +124,15 @@ func load_all():
 	
 func save_name(new_name):
 	var file = get_most_recent_save()
-	var save_game = FileAccess.open("res://assets/saves/"+ file, FileAccess.READ_WRITE)
+	var load_game = FileAccess.open("res://assets/saves/"+ file, FileAccess.READ)
 	var node_data : Dictionary
-	while save_game.get_position() < save_game.get_length():
-		var json_string = save_game.get_line()
+	while load_game.get_position() < load_game.get_length():
+		var json_string = load_game.get_line()
 		var json = JSON.new()
 		var parse_result = json.parse(json_string)
 		node_data = json.get_data()
 	node_data.username = new_name
+	var save_game = FileAccess.open("res://assets/saves/" + file, FileAccess.WRITE)
 	var json_string = JSON.stringify(node_data)
 	save_game.store_line(json_string)
 		
