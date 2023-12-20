@@ -1,6 +1,6 @@
 extends Obstacle
 var player : Player
-var water_hole = preload("res://assets/sprites/obstacles/water hole.png")
+@onready var water_hole = preload("res://assets/sprites/obstacles/water hole.png")
 
 func _ready():
 	match get_parent().get_parent().id:

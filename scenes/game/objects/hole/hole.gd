@@ -1,5 +1,5 @@
 extends Obstacle
-var spikes = preload("res://assets/sprites/obstacles/spike.png")
+@onready var spikes = preload("res://assets/sprites/obstacles/spike.png")
 
 func _ready():
 	match get_parent().get_parent().id:
