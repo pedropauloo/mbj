@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cel18r25p2o5w"
-path="res://.godot/imported/8-K9XfBxgKe6NmUIX.png-489bef5f745f5bb190c7282c1d40f81a.ctex"
+uid="uid://bk61mdq6h4gr2"
+path="res://.godot/imported/spr_bluecar_0.png-62791c1fbc1a6de7a16c5036d7f4483d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/8-K9XfBxgKe6NmUIX.png"
-dest_files=["res://.godot/imported/8-K9XfBxgKe6NmUIX.png-489bef5f745f5bb190c7282c1d40f81a.ctex"]
+source_file="res://assets/sprites/obstacles/carros/spr_bluecar_0.png"
+dest_files=["res://.godot/imported/spr_bluecar_0.png-62791c1fbc1a6de7a16c5036d7f4483d.ctex"]
 
 [params]
 

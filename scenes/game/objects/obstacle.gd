@@ -6,10 +6,11 @@ var speed_variation := 0.25
 const MIN_FACTOR := 0.5 #50% of original speed
 const MAX_FACTOR := 1.0 #100% of original speed
 var status := 1
+var extras : float = 0 # Any extra bonuses from quirky obstacles
 
 func _physics_process(delta):
 	var new_position = transform.origin
-	new_position.x -= SPEED * speed_factor * delta
+	new_position.x -= (SPEED * speed_factor * delta) + extras
 	transform.origin = new_position
 
 func _process(delta):

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cd7cicjcg1pxr"]
+
+[node name="cat" type="Area3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]

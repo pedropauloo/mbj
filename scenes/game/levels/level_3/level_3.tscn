@@ -17,9 +17,8 @@
 size = Vector3(200, 1, 10)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oislk"]
+render_priority = 0
 shader = ExtResource("9_n2dho")
-shader_parameter/direction = Vector2(1, 0)
-shader_parameter/speed_scale = 0.02
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nn7hc"]
 
