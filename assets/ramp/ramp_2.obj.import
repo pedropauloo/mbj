@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://syt755l41tjo"
+path="res://.godot/imported/ramp_2.obj-0dc1ecb2a773c1adb72852782bcba73d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ramp_2.obj-0dc1ecb2a773c1adb72852782bcba73d.mesh"]
+
+source_file="res://assets/ramp/ramp_2.obj"
+dest_files=["res://.godot/imported/ramp_2.obj-0dc1ecb2a773c1adb72852782bcba73d.mesh", "res://.godot/imported/ramp_2.obj-0dc1ecb2a773c1adb72852782bcba73d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

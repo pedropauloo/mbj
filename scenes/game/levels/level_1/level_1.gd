@@ -3,7 +3,8 @@ extends Level
 @onready var wall = preload("res://scenes/game/objects/wall/wall.tscn")
 @onready var hole = preload("res://scenes/game/objects/hole/hole.tscn")
 @onready var oil = preload("res://scenes/game/objects/oil/oil.tscn")
-@onready var car = preload("res://scenes/game/objects/car/car.tscn")
+@onready var ramp = preload("res://scenes/game/objects/ramp/ramp.tscn")
+
 
 @onready var victim_1 = preload("res://scenes/game/objects/victims/victim_1/victim_1.tscn")
 @onready var victim_2 = preload("res://scenes/game/objects/victims/victim_2/victim_2.tscn")
@@ -12,7 +13,7 @@ extends Level
 var wall_ready = false
 var hole_ready = false
 var oil_ready = false
-var car_ready = false
+var ramp_ready = false
 
 var v1_ready = false
 var v2_ready = false
@@ -51,6 +52,14 @@ func _process(delta):
 		oil_instance.position.z = randi_range(1,-3)
 		$Obstacles.add_child(oil_instance)
 		oil_ready = false
+	
+	elif(ramp_ready):
+		var ramp_instance = ramp.instantiate()
+		ramp_instance.position.x = 50
+		ramp_instance.position.y = 0 
+		ramp_instance.position.z = randi_range(1,-3)
+		$Obstacles.add_child(ramp_instance)
+		ramp_ready = false
 		
 	# Victims
 	if(v1_ready):
@@ -97,7 +106,7 @@ func _on_timer_obstacles_timeout():
 			3:
 				oil_ready = true
 			4:
-				car_ready = true
+				ramp_ready = true
 
 func _on_timer_points_timeout():
 	score += 1
