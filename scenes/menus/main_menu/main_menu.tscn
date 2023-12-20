@@ -95,11 +95,16 @@ theme_override_constants/separation = 10
 layout_mode = 2
 text = "Jogar"
 
+[node name="Leaderboard" type="Button" parent="Menu"]
+layout_mode = 2
+text = "Ranking"
+
 [node name="Quit" type="Button" parent="Menu"]
 layout_mode = 2
-text = "Quit"
+text = "Sair do Jogo"
 
 [connection signal="pressed" from="Menu/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Menu/Leaderboard" to="." method="_on_leaderboard_pressed"]
 [connection signal="pressed" from="Menu/Quit" to="." method="_on_quit_pressed"]
 
 [editable path="AutoScroller"]

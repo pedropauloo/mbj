@@ -1,0 +1,126 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj3rvh5tx3yx7"]
+
+[ext_resource type="Theme" uid="uid://c1rii70uampsj" path="res://assets/ui_presets/title_theme.tres" id="1_pelhj"]
+[ext_resource type="Script" path="res://scenes/menus/leaderboard/leaderboard.gd" id="2_jho5f"]
+[ext_resource type="FontFile" uid="uid://2nly7s8oyw1t" path="res://assets/fonts/Typodermic Fonts/almonte woodgrain.otf" id="3_m5ow8"]
+
+[sub_resource type="TileSet" id="TileSet_uay84"]
+
+[node name="leaderboard" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_pelhj")
+script = ExtResource("2_jho5f")
+
+[node name="TileMap" type="TileMap" parent="."]
+modulate = Color(0.231373, 0.141176, 0.0862745, 1)
+scale = Vector2(10, 10)
+tile_set = SubResource("TileSet_uay84")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 393216, 0, 65535, 393216, 0, 131071, 393216, 0, 196607, 393216, 0, 262143, 393216, 0, 327679, 393216, 0, -65536, 393216, 0, 0, 393216, 0, 65536, 393216, 0, 131072, 393216, 0, 196608, 393216, 0, 262144, 393216, 0, -65535, 393216, 0, 1, 393216, 0, 65537, 393216, 0, 131073, 393216, 0, 196609, 393216, 0, 262145, 393216, 0, -65534, 393216, 0, 2, 393216, 0, 65538, 393216, 0, 131074, 393216, 0, 196610, 393216, 0, 262146, 393216, 0, -65533, 393216, 0, 3, 393216, 0, 65539, 393216, 0, 131075, 393216, 0, 196611, 393216, 0, 262147, 393216, 0, -65532, 393216, 0, 4, 393216, 0, 65540, 393216, 0, 131076, 393216, 0, 196612, 393216, 0, 262148, 393216, 0, -65531, 393216, 0, 5, 393216, 0, 65541, 393216, 0, 131077, 393216, 0, 196613, 393216, 0, 262149, 393216, 0, -65530, 393216, 0, 6, 393216, 0, 65542, 393216, 0, 131078, 393216, 0, 196614, 393216, 0, 262150, 393216, 0, -65529, 393216, 0, 7, 393216, 0, 65543, 393216, 0, 131079, 393216, 0, 196615, 393216, 0, 262151, 393216, 0)
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 232.0
+offset_top = -5.0
+offset_right = 924.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 75
+text = "leaderboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pontuacao" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 331.0
+offset_top = 119.0
+offset_right = 818.0
+offset_bottom = 195.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.509804, 0, 1)
+theme_override_fonts/font = ExtResource("3_m5ow8")
+theme_override_font_sizes/font_size = 50
+text = "RANK     NAME     SCORE"
+horizontal_alignment = 1
+
+[node name="Rank" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 392.0
+offset_top = 192.0
+offset_right = 444.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.509804, 0, 1)
+theme_override_fonts/font = ExtResource("3_m5ow8")
+theme_override_font_sizes/font_size = 50
+text = "1#
+2#
+3#
+4#
+5#"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 528.0
+offset_top = 192.0
+offset_right = 597.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.509804, 0, 1)
+theme_override_fonts/font = ExtResource("3_m5ow8")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 688.0
+offset_top = 192.0
+offset_right = 756.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.509804, 0, 1)
+theme_override_fonts/font = ExtResource("3_m5ow8")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 384.0
+offset_top = 536.0
+offset_right = 768.0
+offset_bottom = 728.0
+
+[node name="BackToMenu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Voltar ao Menu
+"
+
+[connection signal="pressed" from="VBoxContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]

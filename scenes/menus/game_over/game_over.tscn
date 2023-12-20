@@ -35,7 +35,7 @@ texture = ExtResource("3_c78lb")
 25:0/0 = 0
 26:0/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_1h8dx"]
+[sub_resource type="TileSet" id="TileSet_71nve"]
 sources/0 = SubResource("TileSetAtlasSource_k1osy")
 
 [node name="game_over" type="Control"]
@@ -52,11 +52,12 @@ metadata/_edit_lock_ = true
 [node name="TileMap" type="TileMap" parent="."]
 modulate = Color(0.231373, 0.141176, 0.0862745, 1)
 scale = Vector2(10, 10)
-tile_set = SubResource("TileSet_1h8dx")
+tile_set = SubResource("TileSet_71nve")
 format = 2
 layer_0/tile_data = PackedInt32Array(-1, 393216, 0, 65535, 393216, 0, 131071, 393216, 0, 196607, 393216, 0, 262143, 393216, 0, 327679, 393216, 0, -65536, 393216, 0, 0, 393216, 0, 65536, 393216, 0, 131072, 393216, 0, 196608, 393216, 0, 262144, 393216, 0, -65535, 393216, 0, 1, 393216, 0, 65537, 393216, 0, 131073, 393216, 0, 196609, 393216, 0, 262145, 393216, 0, -65534, 393216, 0, 2, 393216, 0, 65538, 393216, 0, 131074, 393216, 0, 196610, 393216, 0, 262146, 393216, 0, -65533, 393216, 0, 3, 393216, 0, 65539, 393216, 0, 131075, 393216, 0, 196611, 393216, 0, 262147, 393216, 0, -65532, 393216, 0, 4, 393216, 0, 65540, 393216, 0, 131076, 393216, 0, 196612, 393216, 0, 262148, 393216, 0, -65531, 393216, 0, 5, 393216, 0, 65541, 393216, 0, 131077, 393216, 0, 196613, 393216, 0, 262149, 393216, 0, -65530, 393216, 0, 6, 393216, 0, 65542, 393216, 0, 131078, 393216, 0, 196614, 393216, 0, 262150, 393216, 0, -65529, 393216, 0, 7, 393216, 0, 65543, 393216, 0, 131079, 393216, 0, 196615, 393216, 0, 262151, 393216, 0)
+metadata/_edit_lock_ = true
 
-[node name="GameOverLavel" type="Label" parent="."]
+[node name="GameOverLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.16
@@ -82,6 +83,7 @@ offset_top = 264.224
 offset_right = 1296.32
 offset_bottom = 510.224
 theme_override_colors/font_color = Color(1, 0.509804, 0, 1)
+theme_override_constants/shadow_outline_size = 25
 theme_override_fonts/font = ExtResource("3_1u3qe")
 theme_override_font_sizes/font_size = 60
 text = "Pontuação Final:     "
@@ -98,12 +100,33 @@ theme_override_fonts/font = ExtResource("3_1u3qe")
 theme_override_font_sizes/font_size = 60
 text = "0"
 
+[node name="Nome" type="Label" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 360.0
+offset_right = 634.0
+offset_bottom = 480.0
+theme_override_colors/font_color = Color(1, 0.509804, 0, 1)
+theme_override_constants/shadow_outline_size = 20
+theme_override_fonts/font = ExtResource("3_1u3qe")
+theme_override_font_sizes/font_size = 40
+text = "Digite seu nome:"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 376.0
+offset_right = 707.062
+offset_bottom = 407.0
+scale = Vector2(1.8, 1)
+max_length = 5
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 384.0
-offset_top = 384.0
+offset_top = 448.0
 offset_right = 768.0
-offset_bottom = 576.0
+offset_bottom = 640.0
 
 [node name="TryAgain" type="Button" parent="VBoxContainer"]
 layout_mode = 2
