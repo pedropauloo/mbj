@@ -3,6 +3,7 @@ extends Level
 @onready var wall = preload("res://scenes/game/objects/wall/wall.tscn")
 @onready var hole = preload("res://scenes/game/objects/hole/hole.tscn")
 @onready var oil = preload("res://scenes/game/objects/oil/oil.tscn")
+
 @onready var victim_1 = preload("res://scenes/game/objects/victims/victim_1/victim_1.tscn")
 @onready var victim_2 = preload("res://scenes/game/objects/victims/victim_2/victim_2.tscn")
 @onready var victim_3 = preload("res://scenes/game/objects/victims/victim_3/victim_3.tscn")
@@ -10,6 +11,7 @@ extends Level
 var wall_ready = false
 var hole_ready = false
 var oil_ready = false
+
 var v1_ready = false
 var v2_ready = false
 var v3_ready = false
@@ -28,23 +30,23 @@ func _process(delta):
 		var wall_inst = wall.instantiate()
 		wall_inst.position.x = 50 
 		wall_inst.position.y = 1 
-		wall_inst.position.z = randi_range(2,-5)
+		wall_inst.position.z = randi_range(1,-3)
 		$Obstacles.add_child(wall_inst)
 		wall_ready = false
 		
 	elif(hole_ready):
 		var hole_instance = hole.instantiate()
 		hole_instance.position.x = 50
-		hole_instance.position.y = 1 
-		hole_instance.position.z = randi_range(2,-5)
+		hole_instance.position.y = 0 
+		hole_instance.position.z = randi_range(1,-3)
 		$Obstacles.add_child(hole_instance)
 		hole_ready = false
 		
 	elif(oil_ready):
 		var oil_instance = oil.instantiate()
 		oil_instance.position.x = 50
-		oil_instance.position.y = 1 
-		oil_instance.position.z = randi_range(2,-5)
+		oil_instance.position.y = 0 
+		oil_instance.position.z = randi_range(1,-3)
 		$Obstacles.add_child(oil_instance)
 		oil_ready = false
 		
@@ -79,14 +81,19 @@ func _process(delta):
 	#	emit_signal("change_level",next_level)
 	
 func _on_timer_obstacles_timeout():
-	if($Obstacles.get_children().size() <= 15):
-		match randi_range(1,3):
-			1:
-				wall_ready = true
-			2:
-				hole_ready = true
-			3:
-				oil_ready = true
+	if($Obstacles.get_children().size() <= 10):
+		var n = randi_range(1,100)
+		# Wall 10%
+		if (n <= 10):
+			wall_ready = true  
+		# Oil 20%
+		elif (n <= 30):
+			oil_ready = true
+		# Hole 10%	
+		elif (n <= 40):
+			hole_ready = true
+		else:
+			pass
 
 func _on_timer_points_timeout():
 	score += 3
@@ -100,3 +107,6 @@ func _on_timer_victims_timeout():
 			v2_ready = true
 		3:
 			v3_ready = true
+
+func _on_robbed(money):
+	$money_anim.add_money(money)

@@ -1,6 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://bhimu7x0d517v"]
+[gd_scene load_steps=24 format=3 uid="uid://b4kftjfq48l61"]
 
-[ext_resource type="Script" path="res://scenes/game/levels/level_2/level_2.gd" id="1_vqkjg"]
+[ext_resource type="Script" path="res://scenes/game/levels/level_3/level_3.gd" id="1_che61"]
 [ext_resource type="PackedScene" uid="uid://c3idsj77kmk8h" path="res://scenes/game/levels/auto_scroller/auto_scroller.tscn" id="2_yr8kx"]
 [ext_resource type="Texture2D" uid="uid://c0ty8ce0nfctq" path="res://assets/tilesets/Slum street/Sky.png" id="3_ltqpn"]
 [ext_resource type="Texture2D" uid="uid://carsi40s4p6eb" path="res://assets/tilesets/city/-5.png" id="4_7yhvm"]
@@ -23,8 +23,9 @@
 size = Vector3(200, 1, 10)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oislk"]
-render_priority = 0
 shader = ExtResource("9_n2dho")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 30.0
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_001ae"]
 
@@ -40,7 +41,7 @@ tonemap_mode = 2
 size = Vector3(200, 10, 0)
 
 [node name="level_3" type="Node3D"]
-script = ExtResource("1_vqkjg")
+script = ExtResource("1_che61")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 show_behind_parent = true
