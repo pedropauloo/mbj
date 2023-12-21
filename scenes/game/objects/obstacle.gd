@@ -46,5 +46,6 @@ func _process(delta):
 				status = 1
 
 static func set_speed_factor(factor: float):
-	speed_factor = factor
+	if (factor >= MIN_FACTOR):
+		speed_factor = factor
 
