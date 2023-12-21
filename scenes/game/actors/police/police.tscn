@@ -301,12 +301,10 @@ _data = {
 }
 
 [node name="Police" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 script = ExtResource("1_ysceu")
 
 [node name="Lights" type="Node2D" parent="."]
 top_level = true
-position = Vector2(60, 0.1)
 
 [node name="PoliceLight" type="PointLight2D" parent="Lights"]
 position = Vector2(50, 390)
@@ -333,7 +331,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.5, -3)
 gravity_scale = 0.0
 
 [node name="Sprite3D_P1" type="Sprite3D" parent="police"]
-transform = Transform3D(15, 0, 0, 0, 10.6066, 10.6066, 0, -10.6066, 10.6066, 0, 0.1, 0)
+transform = Transform3D(15, 0, 0, 0, 10.6066, 10.6066, 0, -10.6066, 10.6066, 0, 0, 0)
 flip_h = true
 texture_filter = 0
 texture = ExtResource("1_r6wn4")
@@ -348,7 +346,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.5, -1)
 gravity_scale = 0.0
 
 [node name="Sprite3D_P2" type="Sprite3D" parent="police2"]
-transform = Transform3D(15, 0, 0, 0, 10.6066, 10.6066, 0, -10.6066, 10.6066, 0, 0.1, 0)
+transform = Transform3D(15, 0, 0, 0, 10.6066, 10.6066, 0, -10.6066, 10.6066, 0, 0, 0)
 flip_h = true
 texture_filter = 0
 texture = ExtResource("1_r6wn4")
@@ -363,7 +361,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.5, 1)
 gravity_scale = 0.0
 
 [node name="Sprite3D_P3" type="Sprite3D" parent="police3"]
-transform = Transform3D(15, 0, 0, 0, 10.6066, 10.6066, 0, -10.6066, 10.6066, 0, 0.1, 0)
+transform = Transform3D(15, 0, 0, 0, 10.6066, 10.6066, 0, -10.6066, 10.6066, 0, 0, 0)
 flip_h = true
 texture_filter = 0
 texture = ExtResource("1_r6wn4")
