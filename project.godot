@@ -30,6 +30,10 @@ texture={
 "mipmaps/generate": true
 }
 
+[internationalization]
+
+rendering/windows_native_icon=""
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
