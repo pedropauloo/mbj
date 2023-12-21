@@ -33,7 +33,7 @@ func _process(delta):
 		var wall_inst = wall.instantiate()
 		wall_inst.position.x = 50 
 		wall_inst.position.y = 1 
-		wall_inst.position.z = randi_range(1,-3)
+		wall_inst.position.z = randi_range(2,-5)
 		$Obstacles.add_child(wall_inst)
 		wall_ready = false
 		
@@ -41,7 +41,7 @@ func _process(delta):
 		var hole_instance = hole.instantiate()
 		hole_instance.position.x = 50
 		hole_instance.position.y = 0 
-		hole_instance.position.z = randi_range(1,-3)
+		hole_instance.position.z = randi_range(2,-5)
 		$Obstacles.add_child(hole_instance)
 		hole_ready = false
 		
@@ -49,7 +49,7 @@ func _process(delta):
 		var oil_instance = oil.instantiate()
 		oil_instance.position.x = 50
 		oil_instance.position.y = 0 
-		oil_instance.position.z = randi_range(1,-3)
+		oil_instance.position.z = randi_range(2,-5)
 		$Obstacles.add_child(oil_instance)
 		oil_ready = false
 	
@@ -57,7 +57,7 @@ func _process(delta):
 		var ramp_instance = ramp.instantiate()
 		ramp_instance.position.x = 50
 		ramp_instance.position.y = 0 
-		ramp_instance.position.z = randi_range(1,-3)
+		ramp_instance.position.z = randi_range(2,-5)
 		$Obstacles.add_child(ramp_instance)
 		ramp_ready = false
 		
@@ -99,19 +99,19 @@ func _process(delta):
 func _on_timer_obstacles_timeout():
 	if($Obstacles.get_children().size() <= 10):
 		var n = randi_range(1,100)
-		# Wall 20%
-		if (n <= 20):
+		# Wall 30%
+		if (n <= 30):
 			wall_ready = true 
 		# Oil 20%
-		elif (n <= 40):
+		elif (n <= 50):
 			oil_ready = true	
 		# Hole 20%	
-		elif (n <= 60):
+		elif (n <= 70):
 			hole_ready = true
 		# Ramp 10%
-		elif (n <= 70):
+		elif (n <= 80):
 			ramp_ready = true
-		# Nothing 30%
+		# Nothing 20%
 		else:
 			pass
 

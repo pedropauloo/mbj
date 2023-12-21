@@ -25,6 +25,5 @@ func _on_body_entered(body):
 		if(speed_variation > 0):
 			speed_variation = -speed_variation
 		status = 2
-		get_parent().get_parent().get_node('TimerPolice').start()
 		get_parent().get_parent().get_node("Police").animation_status = 2
 		set_speed_factor(speed_factor + speed_variation)

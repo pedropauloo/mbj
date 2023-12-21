@@ -51,7 +51,7 @@ shader_parameter/direction = Vector2(1, 0)
 shader_parameter/speed_scale = 0.3
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jr3q7"]
-size = Vector3(200, 10, 0)
+size = Vector3(200, 100, 0)
 
 [node name="level_2" type="Node3D"]
 script = ExtResource("1_qwrx2")
