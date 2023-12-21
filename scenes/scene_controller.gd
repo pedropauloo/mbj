@@ -80,14 +80,14 @@ func next_save(file):
 func get_most_recent_save():
 	var file_name := '5_savegame.save' 
 	var file_time := 0
-	var dir = DirAccess.open("res://assets/saves/")
+	var dir = DirAccess.open("user://")
 	dir.list_dir_begin()
 	while true:
 		var file = dir.get_next()
 		if file == "":
 			break
 		elif not file.begins_with("."):
-			var new_time = FileAccess.get_modified_time("res://assets/saves/" + file)
+			var new_time = FileAccess.get_modified_time("user://" + file)
 			if file_time < new_time:
 				file_name = file
 				file_time = new_time
@@ -100,12 +100,12 @@ func save_game():
 		file = next_save(get_most_recent_save())
 	else:
 		file = get_most_recent_save()
-	var save_game = FileAccess.open("res://assets/saves/"+ file, FileAccess.WRITE)
+	var save_game = FileAccess.open("user://"+ file, FileAccess.WRITE)
 	var json_string = JSON.stringify(current_level.save())
 	save_game.store_line(json_string)
 	
 func load_game():
-	var save_game = FileAccess.open("res://assets/saves/" +get_most_recent_save(), FileAccess.READ)
+	var save_game = FileAccess.open("user://" +get_most_recent_save(), FileAccess.READ)
 	
 	while save_game.get_position() < save_game.get_length():
 		var json_string = save_game.get_line()
@@ -118,7 +118,7 @@ func load_game():
 func load_all():
 	var saves_json = []
 	for n in range(0,5):
-		var save = "res://assets/saves/"+str(n+1)+"_savegame.save"
+		var save = "user://"+str(n+1)+"_savegame.save"
 		if FileAccess.file_exists(save):
 			var save_game = FileAccess.open(save, FileAccess.READ)
 			while save_game.get_position() < save_game.get_length():
@@ -128,7 +128,7 @@ func load_all():
 	
 func save_name(new_name):
 	var file = get_most_recent_save()
-	var load_game = FileAccess.open("res://assets/saves/"+ file, FileAccess.READ)
+	var load_game = FileAccess.open("user://"+ file, FileAccess.READ)
 	var node_data : Dictionary
 	while load_game.get_position() < load_game.get_length():
 		var json_string = load_game.get_line()
@@ -136,7 +136,7 @@ func save_name(new_name):
 		var parse_result = json.parse(json_string)
 		node_data = json.get_data()
 	node_data.username = new_name
-	var save_game = FileAccess.open("res://assets/saves/" + file, FileAccess.WRITE)
+	var save_game = FileAccess.open("user://" + file, FileAccess.WRITE)
 	var json_string = JSON.stringify(node_data)
 	save_game.store_line(json_string)
 		

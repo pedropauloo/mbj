@@ -1,10 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj3rvh5tx3yx7"]
+[gd_scene load_steps=7 format=3 uid="uid://cj3rvh5tx3yx7"]
 
 [ext_resource type="Theme" uid="uid://c1rii70uampsj" path="res://assets/ui_presets/title_theme.tres" id="1_pelhj"]
 [ext_resource type="Script" path="res://scenes/menus/leaderboard/leaderboard.gd" id="2_jho5f"]
 [ext_resource type="FontFile" uid="uid://2nly7s8oyw1t" path="res://assets/fonts/Typodermic Fonts/almonte woodgrain.otf" id="3_m5ow8"]
+[ext_resource type="Texture2D" uid="uid://dbuc35s1dssdk" path="res://assets/tilesets/scraps_bricks.png" id="3_og8pt"]
 
-[sub_resource type="TileSet" id="TileSet_uay84"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1osy"]
+texture = ExtResource("3_og8pt")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+20:0/0 = 0
+21:0/0 = 0
+22:0/0 = 0
+23:0/0 = 0
+24:0/0 = 0
+25:0/0 = 0
+26:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xvuf4"]
+sources/0 = SubResource("TileSetAtlasSource_k1osy")
 
 [node name="leaderboard" type="Control"]
 layout_mode = 3
@@ -15,7 +47,7 @@ script = ExtResource("2_jho5f")
 [node name="TileMap" type="TileMap" parent="."]
 modulate = Color(0.231373, 0.141176, 0.0862745, 1)
 scale = Vector2(10, 10)
-tile_set = SubResource("TileSet_uay84")
+tile_set = SubResource("TileSet_xvuf4")
 format = 2
 layer_0/tile_data = PackedInt32Array(-1, 393216, 0, 65535, 393216, 0, 131071, 393216, 0, 196607, 393216, 0, 262143, 393216, 0, 327679, 393216, 0, -65536, 393216, 0, 0, 393216, 0, 65536, 393216, 0, 131072, 393216, 0, 196608, 393216, 0, 262144, 393216, 0, -65535, 393216, 0, 1, 393216, 0, 65537, 393216, 0, 131073, 393216, 0, 196609, 393216, 0, 262145, 393216, 0, -65534, 393216, 0, 2, 393216, 0, 65538, 393216, 0, 131074, 393216, 0, 196610, 393216, 0, 262146, 393216, 0, -65533, 393216, 0, 3, 393216, 0, 65539, 393216, 0, 131075, 393216, 0, 196611, 393216, 0, 262147, 393216, 0, -65532, 393216, 0, 4, 393216, 0, 65540, 393216, 0, 131076, 393216, 0, 196612, 393216, 0, 262148, 393216, 0, -65531, 393216, 0, 5, 393216, 0, 65541, 393216, 0, 131077, 393216, 0, 196613, 393216, 0, 262149, 393216, 0, -65530, 393216, 0, 6, 393216, 0, 65542, 393216, 0, 131078, 393216, 0, 196614, 393216, 0, 262150, 393216, 0, -65529, 393216, 0, 7, 393216, 0, 65543, 393216, 0, 131079, 393216, 0, 196615, 393216, 0, 262151, 393216, 0)
 metadata/_edit_lock_ = true

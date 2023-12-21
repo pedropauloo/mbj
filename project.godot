@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="2Caras1Moto"
+config/description="Bem vindo a *2 CARAS 1 MOTO*! O jogo onde você deve escapar da policia 
+e roubar dinheiro de quem passar pela sua frente, enquanto evita os
+vários obstáculos no caminho."
 run/main_scene="res://scenes/scene_controller.tscn"
-config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/features=PackedStringArray("4.1", "GL Compatibility")
+config/icon="res://assets/icon.png"
+config/windows_native_icon="res://assets/icon.ico"
 
 [display]
 
