@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmrq3bklshgm4"]
+[gd_scene load_steps=14 format=3 uid="uid://bmrq3bklshgm4"]
 
 [ext_resource type="Script" path="res://scenes/menus/player_hud/player_hud.gd" id="1_1yny6"]
 [ext_resource type="Theme" uid="uid://c1rii70uampsj" path="res://assets/ui_presets/title_theme.tres" id="1_d1th5"]
@@ -6,6 +6,26 @@
 [ext_resource type="Texture2D" uid="uid://d3c7jtckmtkrb" path="res://assets/ui_presets/bar-under.png" id="4_wnoqe"]
 [ext_resource type="Texture2D" uid="uid://b3hb1bselhhs6" path="res://assets/ui_presets/bar_over.png" id="5_sgyyl"]
 [ext_resource type="Texture2D" uid="uid://dgntah74fp42e" path="res://assets/ui_presets/bar-progress.png" id="6_ha2nu"]
+[ext_resource type="Texture2D" uid="uid://co3pqbtnmcobh" path="res://assets/touch_stuff/button.png" id="7_fpuc2"]
+[ext_resource type="Texture2D" uid="uid://rvmp7qjcasjm" path="res://assets/touch_stuff/button_2.png" id="8_udmar"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1ydn"]
+size = Vector2(300, 300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4b4d0"]
+size = Vector2(300, 300)
+
+[sub_resource type="Gradient" id="Gradient_ccyih"]
+offsets = PackedFloat32Array(0.608856, 0.642066)
+colors = PackedColorArray(1, 1, 1, 0.313726, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wd60r"]
+gradient = SubResource("Gradient_ccyih")
+fill = 1
+fill_from = Vector2(0.495726, 0.504274)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o1yqx"]
+radius = 29.28
 
 [node name="player_hud" type="Control"]
 layout_mode = 3
@@ -61,3 +81,39 @@ texture_progress = ExtResource("6_ha2nu")
 tint_under = Color(0.67451, 1, 0.670588, 1)
 tint_over = Color(1, 1, 0.223529, 1)
 tint_progress = Color(0, 0.431373, 0.0862745, 1)
+
+[node name="Touch" type="CanvasLayer" parent="."]
+offset = Vector2(386, 0)
+transform = Transform2D(1, 0, 0, 1, 386, 0)
+
+[node name="Up" type="TouchScreenButton" parent="Touch"]
+modulate = Color(1, 1, 1, 0.615686)
+position = Vector2(-323, 482)
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("8_udmar")
+texture_pressed = ExtResource("7_fpuc2")
+shape = SubResource("RectangleShape2D_c1ydn")
+action = "ui_up"
+
+[node name="Down" type="TouchScreenButton" parent="Touch"]
+modulate = Color(1, 1, 1, 0.615686)
+position = Vector2(-233.3, 507)
+rotation = 1.5708
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("8_udmar")
+texture_pressed = ExtResource("7_fpuc2")
+shape = SubResource("RectangleShape2D_4b4d0")
+action = "ui_down"
+
+[node name="Space" type="TouchScreenButton" parent="Touch"]
+texture_filter = 6
+position = Vector2(528, 400)
+scale = Vector2(3, 3)
+texture_normal = SubResource("GradientTexture2D_wd60r")
+shape = SubResource("CircleShape2D_o1yqx")
+action = "ui_accept"
+
+[connection signal="pressed" from="Touch/Up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="Touch/Down" to="." method="_on_down_pressed"]
+[connection signal="pressed" from="Touch/Space" to="." method="_on_space_pressed"]

@@ -30,6 +30,10 @@ texture={
 "mipmaps/generate": true
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [internationalization]
 
 rendering/windows_native_icon=""
